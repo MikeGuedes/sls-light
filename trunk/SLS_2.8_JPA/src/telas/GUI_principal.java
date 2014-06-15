@@ -13,9 +13,8 @@ public class GUI_principal extends javax.swing.JFrame {
 //	VARIÁVEIS GLOBAIS
 //=========================================================================================
 	
-	static String retorno; 
+	static String retorno, nome, data, hora; 
 	static int codigo;
-	static String nome;
          
 //=========================================================================================
 //	CONSTRUTOR

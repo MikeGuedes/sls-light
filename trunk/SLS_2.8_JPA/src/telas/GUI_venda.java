@@ -505,9 +505,17 @@ public class GUI_venda extends javax.swing.JInternalFrame {
     private void btn_finalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_finalizarActionPerformed
 		
 		gerenciador = rotina.Conectar();
-//		
-//		venda.setId(null);
-//		venda.se
+
+		venda.setId(null);
+		venda.setData(GUI_principal.data);
+		venda.setHora(GUI_principal.hora);
+		venda.setPagamento((String)this.box_pagamanto.getSelectedItem());
+		
+		rotina.Persistir(gerenciador, venda);
+		
+		rotina.Fechar(gerenciador);
+		
+		JOptionPane.showMessageDialog(null, "Finalizado");
 		
     }//GEN-LAST:event_btn_finalizarActionPerformed
 
