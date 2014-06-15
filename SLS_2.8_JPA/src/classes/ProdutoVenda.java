@@ -69,5 +69,13 @@ public class ProdutoVenda implements Serializable {
         public void setVenda(Venda venda) {
                 this.venda = venda;
         }
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
     
 }//CLASS
