@@ -1,9 +1,11 @@
 package telas;
 import classes.Produto;
 import classes.ProdutoVenda;
+import classes.Usuario;
 import classes.Venda;
 import funcoes.Rotinas;
 import javax.persistence.EntityManager;
+import javax.persistence.Query;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -14,11 +16,13 @@ public class GUI_venda extends javax.swing.JInternalFrame {
 //=========================================================================================
 	 
     EntityManager gerenciador;
+	Query consulta;
     ProdutoVenda produtoVenda = new ProdutoVenda();
 	Rotinas rotina = new Rotinas();
 	Produto produto = new Produto();
-                    Venda venda = new Venda();
-                    String tabela = "Venda";
+	Usuario usuario = new Usuario();
+	Venda venda = new Venda();
+	String tabela = "Venda";
 	double total = 0;
 
 
@@ -503,24 +507,22 @@ public class GUI_venda extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btn_removerActionPerformed
 
     private void btn_finalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_finalizarActionPerformed
-		
-		JOptionPane.showMessageDialog(null, GUI_principal.data+"\n"+GUI_principal.hora+"\n"
-			+(String)this.box_pagamanto.getSelectedItem()+"\n"+GUI_principal.nome+"\n"+this.lbl_codigo.getText());
-		
-		
+
 		gerenciador = rotina.Conectar();
 
 		venda.setId(null);
 		venda.setData(GUI_principal.data);
 		venda.setHora(GUI_principal.hora);
 		venda.setPagamento((String)this.box_pagamanto.getSelectedItem());
-//		venda.setUsuario(null);
-		
+		//@@@@@@@@@@@@@@@@@@
+		consulta = gerenciador.createQuery("select c from Usuario c where c.id = :id");
+		consulta.setParameter("id", GUI_principal.codigo);
+		usuario = (Usuario) consulta.getSingleResult();
+		venda.setUsuario(usuario);
+		//@@@@@@@@@@@@@@@@@@
 		rotina.Persistir(gerenciador, venda);
 		
 		rotina.Fechar(gerenciador);
-		
-		//JOptionPane.showMessageDialog(null, "Finalizado");
 		
     }//GEN-LAST:event_btn_finalizarActionPerformed
 
