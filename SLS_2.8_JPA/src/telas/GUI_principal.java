@@ -556,7 +556,8 @@ public class GUI_principal extends javax.swing.JFrame {
                     int ano = Calendar.get(GregorianCalendar.YEAR);
                     
                     //Finaliza com a data atual
-                    lbl_data.setText(""+dia+"/"+mes+"/"+ano);
+			GUI_principal.data =  ""+dia+"/"+mes+"/"+ano;
+                    lbl_data.setText(GUI_principal.data);
                     
                     //Define o relógio com a hora atual
                     int hora=Calendar.get(GregorianCalendar.HOUR_OF_DAY);//HORA
@@ -590,7 +591,8 @@ public class GUI_principal extends javax.swing.JFrame {
                     }//IF
                     
                     //Finaliza com o relógio que será exibido
-                    lbl_hora.setText(horaString+":"+minString+":"+segString);
+			GUI_principal.hora = horaString+":"+minString+":"+segString;
+                    lbl_hora.setText(GUI_principal.hora);
                     
                     //Define o tempo de atualização do label
                     try {
