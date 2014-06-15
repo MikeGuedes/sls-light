@@ -7,8 +7,8 @@
 <!-- the Compile on Save feature is turned off for the project. -->
 <!-- You can turn off the Compile on Save (or Deploy on Save) setting -->
 <!-- in the project's Project Properties dialog box.-->
-<project name="SLS_2.8_JPA" default="default" basedir=".">
-    <description>Builds, tests, and runs the project SLS_2.8_JPA.</description>
+<project name="sls_light" default="default" basedir=".">
+    <description>Builds, tests, and runs the project sls_light.</description>
     <import file="nbproject/build-impl.xml"/>
     <!--
 
@@ -58,7 +58,7 @@
 
     An example of overriding the target for project execution could look like this:
 
-        <target name="run" depends="SLS_2.8_JPA-impl.jar">
+        <target name="run" depends="sls_light-impl.jar">
             <exec dir="bin" executable="launcher.exe">
                 <arg file="${dist.jar}"/>
             </exec>

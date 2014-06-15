@@ -12,7 +12,7 @@ public class GUI_venda extends javax.swing.JInternalFrame {
 //=========================================================================================
 //	VARIÁVEIS GLOBAIS
 //=========================================================================================
-	
+	 
     EntityManager gerenciador;
     ProdutoVenda produtoVenda = new ProdutoVenda();
 	Rotinas rotina = new Rotinas();
