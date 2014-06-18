@@ -524,42 +524,42 @@ public class GUI_venda extends javax.swing.JInternalFrame {
 		venda.setUsuario(usuario);
 		//@@@@@@@@@@@@@@@@@@
 		rotina.Persistir(gerenciador, venda);//SALVA A VENDA
-		
+		JOptionPane.showMessageDialog(null, "Venda OK");
+			//VENDA OK 
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 		//ITEM
-		
+		JOptionPane.showMessageDialog(null, "Agora é a rotina de produtoVenda");
 		//Preenchendo Entidade 'produtoVenda'
 		produtoVenda.setId(null);
-			JOptionPane.showMessageDialog(null, "setou id nulo");
 		//Seta a venda do item
 		consulta = gerenciador.createQuery("select c from Venda c order by c.id desc");//HQL
 		consulta.setMaxResults(1);//Captura o último registro
 		venda = (Venda)consulta.getSingleResult();
 		produtoVenda.setVenda(venda);//Adiciona a venda que foi criada
-			JOptionPane.showMessageDialog(null, "setou a venda");
-		
-		//Salva os item na venda que foi aberta
-		//AQUI VAI UM FOR OU WHILE
+			JOptionPane.showMessageDialog(null, "ADICIONOU A VENDA !!!");// Etapa 1 >>>>>>>>>>>>>>>>>>>>>>>
+
 		int id = (Integer) this.tbl_itens.getModel().getValueAt(0, 0);
+			JOptionPane.showMessageDialog(null, "O id do produto é: "+id);
 		consulta = gerenciador.createQuery("select c from Produto c where c.id = :id");
 		consulta.setParameter("id", id);
 		produto = (Produto) consulta.getSingleResult();
 		produtoVenda.setProduto(produto);//Adiciona o produto
-			JOptionPane.showMessageDialog(null, "setou o produto");
-		
-		//Salva a quantidade que foi vendida
+			JOptionPane.showMessageDialog(null, "ADICIONOU O PRODUTO !!!");
+//		//Salva a quantidade que foi vendida
 		int qtd = (Integer) this.tbl_itens.getModel().getValueAt(0, 3);
 		produtoVenda.setQuantidade(qtd);//Adiciona o produto
-			JOptionPane.showMessageDialog(null, "setou a quantidade");
-		
-		JOptionPane.showMessageDialog(null, "Id: "+produtoVenda.getId()+"\n"
-			+ "N° venda: "+produtoVenda.getVenda().getId()+"\n"
-			+ "Vendedor: "+produtoVenda.getVenda().getUsuario().getNome()+"\n"
-			+ "Produto: "+produtoVenda.getProduto().getNome()+"\n"
-			+ "Quantidade: "+produtoVenda.getQuantidade());
-		
+			JOptionPane.showMessageDialog(null, "ADICIONOU A QUANTIDADE !!!");
+//		
 		rotina.Persistir(gerenciador, produtoVenda);
-			JOptionPane.showMessageDialog(null, "salvou");
+			JOptionPane.showMessageDialog(null, "PRODUTO VENDA OK !!!");
+//		JOptionPane.showMessageDialog(null, "Id: "+produtoVenda.getId()+"\n"
+//			+ "N° venda: "+produtoVenda.getVenda().getId()+"\n"
+//			+ "Vendedor: "+produtoVenda.getVenda().getUsuario().getNome()+"\n"
+//			+ "Produto: "+produtoVenda.getProduto().getNome()+"\n"
+//			+ "Quantidade: "+produtoVenda.getQuantidade());
+//		
+//		rotina.Persistir(gerenciador, produtoVenda);
+//			JOptionPane.showMessageDialog(null, "salvou");
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 		rotina.Fechar(gerenciador);
 		
