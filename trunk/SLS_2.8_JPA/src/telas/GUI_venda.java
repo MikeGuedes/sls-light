@@ -24,6 +24,7 @@ public class GUI_venda extends javax.swing.JInternalFrame {
 	Venda venda = new Venda();
 	String tabela = "Venda";
 	double total = 0;
+	String alterador = "salva";// Variavel para alteração da função do 'btn_salvar'
 
 //=========================================================================================
 //	CONSTRUTOR
@@ -239,6 +240,11 @@ public class GUI_venda extends javax.swing.JInternalFrame {
         btn_alterar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btn_alterar.setForeground(new java.awt.Color(102, 102, 102));
         btn_alterar.setText("Alterar");
+        btn_alterar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_alterarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnl_acoesLayout = new javax.swing.GroupLayout(pnl_acoes);
         pnl_acoes.setLayout(pnl_acoesLayout);
@@ -485,6 +491,7 @@ public class GUI_venda extends javax.swing.JInternalFrame {
 	    
          private void btn_novoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_novoActionPerformed
 
+		this.alterador = "salva";
                   this.btn_finalizar.setEnabled(true);
                   this.btn_cancelar.setEnabled(true);
                   this.btn_novo.setEnabled(false);
@@ -545,55 +552,64 @@ public class GUI_venda extends javax.swing.JInternalFrame {
 
     private void btn_finalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_finalizarActionPerformed
 
-//=========================================================================================
-
-		gerenciador = rotina.Conectar();
-		
-		venda.setId(null);
-		venda.setData(GUI_principal.data);
-		venda.setHora(GUI_principal.hora);
-		venda.setPagamento((String)this.box_pagamanto.getSelectedItem());
-		
-		//Usuário da Venda
-		consulta = gerenciador.createQuery("select c from Usuario c where c.id = :id");
-		consulta.setParameter("id", GUI_principal.codigo);
-		usuario = (Usuario) consulta.getSingleResult();
-		venda.setUsuario(usuario);
-		
-		rotina.Persistir(gerenciador, venda);//SALVA A VENDA
-		rotina.Fechar(gerenciador);
-
-//=========================================================================================
-		
-		for(int i = 0  ; this.tbl_itens.getModel().getRowCount() > 0 ; ++i ){
-		
-			gerenciador = rotina.Conectar();
-			//Preenchendo Entidade 'produtoVenda'
-			produtoVenda.setId(null);
-			//Seta a venda do item
-			consulta = gerenciador.createQuery("select c from Venda c order by c.id desc");//HQL
-			consulta.setMaxResults(1);//Captura o último registro
-			venda = (Venda)consulta.getSingleResult();
-			produtoVenda.setVenda(venda);//Adiciona a venda que foi criada
-			//===========================================================================
-			int id = (Integer) this.tbl_itens.getModel().getValueAt(0, 0);
-			consulta = gerenciador.createQuery("select c from Produto c where c.id = :id");
-			consulta.setParameter("id", id);
-			produto = (Produto) consulta.getSingleResult();
-			produtoVenda.setProduto(produto);//Adiciona o produto
-			//Salva a quantidade que foi vendida
-			int qtd = (Integer) this.tbl_itens.getModel().getValueAt(0, 3);
-			produtoVenda.setQuantidade(qtd);//Adiciona o produto
-
-			rotina.Persistir(gerenciador, produtoVenda);//SALVA O ITEM DA VENDA
-			rotina.Fechar(gerenciador);
+		//-----------------------------------------------------------------------------
+		//	SALVAR UMA NOVA VENDA
+		if(alterador.equals("salva")){
 			
-			((DefaultTableModel) this.tbl_itens.getModel()).removeRow(0);
+			gerenciador = rotina.Conectar();
+
+			venda.setId(null);
+			venda.setData(GUI_principal.data);
+			venda.setHora(GUI_principal.hora);
+			venda.setPagamento((String)this.box_pagamanto.getSelectedItem());
+
+			//Usuário da Venda
+			consulta = gerenciador.createQuery("select c from Usuario c where c.id = :id");
+			consulta.setParameter("id", GUI_principal.codigo);
+			usuario = (Usuario) consulta.getSingleResult();
+			venda.setUsuario(usuario);
+
+			rotina.Persistir(gerenciador, venda);//SALVA A VENDA
+			rotina.Fechar(gerenciador);
+
+			for(int i = 0  ; this.tbl_itens.getModel().getRowCount() > 0 ; ++i ){
+
+				gerenciador = rotina.Conectar();
+				//Preenchendo Entidade 'produtoVenda'
+				produtoVenda.setId(null);
+				//Seta a venda do item
+				consulta = gerenciador.createQuery("select c from Venda c order by c.id desc");//HQL
+				consulta.setMaxResults(1);//Captura o último registro
+				venda = (Venda)consulta.getSingleResult();
+				produtoVenda.setVenda(venda);//Adiciona a venda que foi criada
+				//===================================================
+				int id = (Integer) this.tbl_itens.getModel().getValueAt(0, 0);
+				consulta = gerenciador.createQuery("select c from Produto c where c.id = :id");
+				consulta.setParameter("id", id);
+				produto = (Produto) consulta.getSingleResult();
+				produtoVenda.setProduto(produto);//Adiciona o produto
+				//Salva a quantidade que foi vendida
+				int qtd = (Integer) this.tbl_itens.getModel().getValueAt(0, 3);
+				produtoVenda.setQuantidade(qtd);//Adiciona o produto
+
+				rotina.Persistir(gerenciador, produtoVenda);//SALVA O ITEM DA VENDA
+				rotina.Fechar(gerenciador);
+
+				((DefaultTableModel) this.tbl_itens.getModel()).removeRow(0);
+
+			}//FOR
+
+			this.ReiniciaFormulario();
 		
-		}//FOR
+		}//IF
+		//-----------------------------------------------------------------------------------------------------
 		
-		this.ReiniciaFormulario();
-		
+		//--------------------------------------------------------------------------------------------------
+		//	ALTERA UMA VENDA EXISTENTE
+		if(alterador.equals("altera")){
+			JOptionPane.showMessageDialog(null, "Alterando");
+		}//IF
+		//--------------------------------------------------------------------------------------------------
     }//GEN-LAST:event_btn_finalizarActionPerformed
 
     private void btn_localizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_localizarActionPerformed
@@ -854,6 +870,22 @@ public class GUI_venda extends javax.swing.JInternalFrame {
 		rotina.Fechar(gerenciador);
 		
     }//GEN-LAST:event_btn_ultimoActionPerformed
+
+    private void btn_alterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_alterarActionPerformed
+        
+		//---------------------------------------------------------------------
+		//	PREPARA PARA REALIZAR A ALTERAÇÃO
+		this.alterador = "altera";
+		
+		this.txt_busca_produto.setEnabled(true);
+		this.txt_quantidade_produto.setEnabled(true);
+		this.btn_adicionar.setEnabled(true);
+		this.btn_remover.setEnabled(true);
+		this.btn_finalizar.setEnabled(true);
+		this.tbl_itens.setEnabled(true);
+		//----------------------------------------------------------------------
+			
+    }//GEN-LAST:event_btn_alterarActionPerformed
 
 //=========================================================================================
 //	COMPONENTES DO JFRAME
