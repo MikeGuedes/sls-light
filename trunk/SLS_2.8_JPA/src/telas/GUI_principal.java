@@ -65,6 +65,7 @@ public class GUI_principal extends javax.swing.JFrame {
         mnu_man = new javax.swing.JMenu();
         mnu_manUsu = new javax.swing.JMenuItem();
         mnu_manCat = new javax.swing.JMenuItem();
+        mnu_manEst = new javax.swing.JMenuItem();
         mnu_mov = new javax.swing.JMenu();
         mnu_movVen = new javax.swing.JMenuItem();
         mnu_encer = new javax.swing.JMenu();
@@ -261,6 +262,14 @@ public class GUI_principal extends javax.swing.JFrame {
         });
         mnu_man.add(mnu_manCat);
 
+        mnu_manEst.setText("Estoque");
+        mnu_manEst.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnu_manEstActionPerformed(evt);
+            }
+        });
+        mnu_man.add(mnu_manEst);
+
         mnu_menu.add(mnu_man);
 
         mnu_mov.setBackground(new java.awt.Color(102, 102, 102));
@@ -413,6 +422,15 @@ public class GUI_principal extends javax.swing.JFrame {
                   //System.exit(0);
          }//GEN-LAST:event_mnu_encerMouseClicked
 
+    private void mnu_manEstActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnu_manEstActionPerformed
+        
+		GUI_estoque novo = new GUI_estoque();
+                  painel.add(novo);
+                  this.CentralizaForm(novo);
+                  novo.setVisible(true);
+		
+    }//GEN-LAST:event_mnu_manEstActionPerformed
+
 //=========================================================================================
 //	MÉTODO MAIN
 //=========================================================================================
@@ -477,6 +495,7 @@ public class GUI_principal extends javax.swing.JFrame {
     private javax.swing.JMenu mnu_encer;
     private javax.swing.JMenu mnu_man;
     private javax.swing.JMenuItem mnu_manCat;
+    private javax.swing.JMenuItem mnu_manEst;
     private javax.swing.JMenuItem mnu_manUsu;
     private javax.swing.JMenuBar mnu_menu;
     private javax.swing.JMenu mnu_mov;

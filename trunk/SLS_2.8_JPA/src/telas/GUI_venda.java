@@ -4,10 +4,8 @@ import classes.ProdutoVenda;
 import classes.Usuario;
 import classes.Venda;
 import funcoes.Rotinas;
-import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
-import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 //----------------------------------------------------	
 public class GUI_venda extends javax.swing.JInternalFrame {
