@@ -586,22 +586,38 @@ public class GUI_venda extends javax.swing.JInternalFrame {
         
 		int codigo = Integer.parseInt(JOptionPane.showInputDialog(null, "Digite o código da venda", "Busca por venda", JOptionPane.QUESTION_MESSAGE));
 		gerenciador = rotina.Conectar();
+		
 		//-------------------------------------------------------------------------
-		//	Realizando a busca
+		//	REALIZANDO A BUSCA
 		consulta = gerenciador.createQuery("select c from Venda c where c.id = :id");
 		consulta.setParameter("id", codigo);
 		venda = (Venda)consulta.getSingleResult();
 		//-------------------------------------------------------------------------
-		//	Preenchendo os dados da venda
+		
+		//-------------------------------------------------------------------------
+		//	PREENCHENDO OS DADOS DA VENDA
 		this.lbl_codigo.setText(""+venda.getId());
 		this.lbl_data.setText(venda.getData());
 		this.lbl_hora.setText(venda.getHora());
 		this.lbl_vendedor.setText(venda.getUsuario().getNome());
 		this.box_pagamanto.setSelectedItem(venda.getPagamento());
 		//---------------------------------------------------------------------------
-		//	Preenchendo a tabela de Itens
 		
 		//---------------------------------------------------------------------------
+		//	PREENCHENDA A TABELA COM OS ITENS
+		for(int i = 0 ; i < venda.getProdutoVendaList().size() ; i ++){
+			
+			produtoVenda = venda.getProdutoVendaList().get(i);
+			DefaultTableModel tbl_def = (DefaultTableModel)this.tbl_itens.getModel();
+			tbl_def.addRow(new Object[] {produtoVenda.getProduto().getId(), produtoVenda.getProduto().getNome(), 
+				produtoVenda.getProduto().getValorVenda(), produtoVenda.getQuantidade()});
+			double item = produtoVenda.getProduto().getValorVenda()*produtoVenda.getQuantidade();
+			this.total += item;
+		}//FOR
+		
+			this.lbl_valor.setText(""+total);
+		//---------------------------------------------------------------------------
+		
 		rotina.Fechar(gerenciador);
 		
     }//GEN-LAST:event_btn_localizarActionPerformed
