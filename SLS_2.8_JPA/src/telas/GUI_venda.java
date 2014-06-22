@@ -488,12 +488,6 @@ public class GUI_venda extends javax.swing.JInternalFrame {
     private void btn_cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancelarActionPerformed
         
 	this.ReiniciaFormulario();
-	
-	for(int i = 0  ; this.tbl_itens.getModel().getRowCount() > 0 ; ++i ){
-		
-		((DefaultTableModel) this.tbl_itens.getModel()).removeRow(0);
-		
-	}//FOR
 		
     }//GEN-LAST:event_btn_cancelarActionPerformed
 
@@ -583,42 +577,66 @@ public class GUI_venda extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btn_finalizarActionPerformed
 
     private void btn_localizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_localizarActionPerformed
-        
+		
 		int codigo = Integer.parseInt(JOptionPane.showInputDialog(null, "Digite o código da venda", "Busca por venda", JOptionPane.QUESTION_MESSAGE));
-		gerenciador = rotina.Conectar();
 		
-		//-------------------------------------------------------------------------
-		//	REALIZANDO A BUSCA
-		consulta = gerenciador.createQuery("select c from Venda c where c.id = :id");
-		consulta.setParameter("id", codigo);
-		venda = (Venda)consulta.getSingleResult();
-		//-------------------------------------------------------------------------
+		try{//TRATAMENTO DE ERRO
 		
-		//-------------------------------------------------------------------------
-		//	PREENCHENDO OS DADOS DA VENDA
-		this.lbl_codigo.setText(""+venda.getId());
-		this.lbl_data.setText(venda.getData());
-		this.lbl_hora.setText(venda.getHora());
-		this.lbl_vendedor.setText(venda.getUsuario().getNome());
-		this.box_pagamanto.setSelectedItem(venda.getPagamento());
-		//---------------------------------------------------------------------------
-		
-		//---------------------------------------------------------------------------
-		//	PREENCHENDA A TABELA COM OS ITENS
-		for(int i = 0 ; i < venda.getProdutoVendaList().size() ; i ++){
+			//-------------------------------------------------------------------------
+			//	REINICIA O FORMULÁRIO
+			this.ReiniciaFormulario();
+			//-------------------------------------------------------------------------
 			
-			produtoVenda = venda.getProdutoVendaList().get(i);
-			DefaultTableModel tbl_def = (DefaultTableModel)this.tbl_itens.getModel();
-			tbl_def.addRow(new Object[] {produtoVenda.getProduto().getId(), produtoVenda.getProduto().getNome(), 
-				produtoVenda.getProduto().getValorVenda(), produtoVenda.getQuantidade()});
-			double item = produtoVenda.getProduto().getValorVenda()*produtoVenda.getQuantidade();
-			this.total += item;
-		}//FOR
+			gerenciador = rotina.Conectar();
+			//-------------------------------------------------------------------------
+			//	REALIZANDO A BUSCA
+			consulta = gerenciador.createQuery("select c from Venda c where c.id = :id");
+			consulta.setParameter("id", codigo);
+			venda = (Venda)consulta.getSingleResult();
+			//-------------------------------------------------------------------------
+
+			//-------------------------------------------------------------------------
+			//	PREENCHENDO OS DADOS DA VENDA
+			this.lbl_codigo.setText(""+venda.getId());
+			this.lbl_data.setText(venda.getData());
+			this.lbl_hora.setText(venda.getHora());
+			this.lbl_vendedor.setText(venda.getUsuario().getNome());
+			this.box_pagamanto.setSelectedItem(venda.getPagamento());
+			//---------------------------------------------------------------------------
+
+			//---------------------------------------------------------------------------
+			//	PREENCHENDA A TABELA COM OS ITENS
+			for(int i = 0 ; i < venda.getProdutoVendaList().size() ; i ++){
+
+				produtoVenda = venda.getProdutoVendaList().get(i);
+				DefaultTableModel tbl_def = (DefaultTableModel)this.tbl_itens.getModel();
+				tbl_def.addRow(new Object[] {produtoVenda.getProduto().getId(), produtoVenda.getProduto().getNome(), 
+					produtoVenda.getProduto().getValorVenda(), produtoVenda.getQuantidade()});
+				double item = produtoVenda.getProduto().getValorVenda()*produtoVenda.getQuantidade();
+				this.total += item;
+			}//FOR
+
+				this.lbl_valor.setText(""+total);
+			//---------------------------------------------------------------------------
+
+			//---------------------------------------------------------------------------
+			//	ORGANIZA O FORMULÁRIO
+			this.btn_novo.setEnabled(false);
+			this.btn_cancelar.setEnabled(true);
+			this.btn_anterior.setEnabled(true);
+			this.btn_proximo.setEnabled(true);
+			this.btn_primeiro.setEnabled(true);
+			this.btn_ultimo.setEnabled(true);
+			this.btn_alterar.setEnabled(true);
+			//---------------------------------------------------------------------------
+
+			rotina.Fechar(gerenciador);
 		
-			this.lbl_valor.setText(""+total);
-		//---------------------------------------------------------------------------
+		}catch(Exception ex){
 		
-		rotina.Fechar(gerenciador);
+			JOptionPane.showMessageDialog(null, "ERRO !");
+		
+		}//TRY / CATCH
 		
     }//GEN-LAST:event_btn_localizarActionPerformed
 
@@ -703,6 +721,14 @@ public class GUI_venda extends javax.swing.JInternalFrame {
 		this.lbl_vendedor.setText("");
 		this.txt_busca_produto.setText("");
 		this.txt_quantidade_produto.setText("");
+		this.lbl_data.setText("");
+		this.lbl_hora.setText("");
+		
+		for(int i = 0  ; this.tbl_itens.getModel().getRowCount() > 0 ; ++i ){
+		
+			((DefaultTableModel) this.tbl_itens.getModel()).removeRow(0);
+		
+		}//FOR
                   
          }//REINICIA FORMULÁRIO
 		 
