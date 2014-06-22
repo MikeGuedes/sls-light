@@ -6,6 +6,7 @@ import classes.Venda;
 import funcoes.Rotinas;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 //----------------------------------------------------	
 public class GUI_venda extends javax.swing.JInternalFrame {
@@ -51,6 +52,8 @@ public class GUI_venda extends javax.swing.JInternalFrame {
         lbl_codigo = new javax.swing.JLabel();
         lbl_v = new javax.swing.JLabel();
         lbl_cv = new javax.swing.JLabel();
+        lbl_data = new javax.swing.JLabel();
+        lbl_hora = new javax.swing.JLabel();
         pnl_acoes = new javax.swing.JPanel();
         btn_novo = new javax.swing.JButton();
         btn_cancelar = new javax.swing.JButton();
@@ -125,6 +128,12 @@ public class GUI_venda extends javax.swing.JInternalFrame {
         lbl_cv.setForeground(new java.awt.Color(0, 102, 153));
         lbl_cv.setText("Código da venda:");
 
+        lbl_data.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lbl_data.setForeground(new java.awt.Color(102, 102, 102));
+
+        lbl_hora.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lbl_hora.setForeground(new java.awt.Color(102, 102, 102));
+
         javax.swing.GroupLayout pnl_informacoesLayout = new javax.swing.GroupLayout(pnl_informacoes);
         pnl_informacoes.setLayout(pnl_informacoesLayout);
         pnl_informacoesLayout.setHorizontalGroup(
@@ -135,12 +144,16 @@ public class GUI_venda extends javax.swing.JInternalFrame {
                     .addGroup(pnl_informacoesLayout.createSequentialGroup()
                         .addComponent(lbl_cv)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(lbl_codigo))
+                        .addComponent(lbl_codigo)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lbl_data))
                     .addGroup(pnl_informacoesLayout.createSequentialGroup()
                         .addComponent(lbl_v)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lbl_vendedor)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(lbl_vendedor)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lbl_hora)))
+                .addContainerGap())
         );
         pnl_informacoesLayout.setVerticalGroup(
             pnl_informacoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -148,11 +161,13 @@ public class GUI_venda extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addGroup(pnl_informacoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbl_cv)
-                    .addComponent(lbl_codigo))
+                    .addComponent(lbl_codigo)
+                    .addComponent(lbl_data))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnl_informacoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbl_v)
-                    .addComponent(lbl_vendedor))
+                    .addComponent(lbl_vendedor)
+                    .addComponent(lbl_hora))
                 .addContainerGap())
         );
 
@@ -195,6 +210,11 @@ public class GUI_venda extends javax.swing.JInternalFrame {
         btn_localizar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btn_localizar.setForeground(new java.awt.Color(102, 102, 102));
         btn_localizar.setText("Localizar");
+        btn_localizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_localizarActionPerformed(evt);
+            }
+        });
 
         btn_alterar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btn_alterar.setForeground(new java.awt.Color(102, 102, 102));
@@ -562,6 +582,30 @@ public class GUI_venda extends javax.swing.JInternalFrame {
 		
     }//GEN-LAST:event_btn_finalizarActionPerformed
 
+    private void btn_localizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_localizarActionPerformed
+        
+		int codigo = Integer.parseInt(JOptionPane.showInputDialog(null, "Digite o código da venda", "Busca por venda", JOptionPane.QUESTION_MESSAGE));
+		gerenciador = rotina.Conectar();
+		//-------------------------------------------------------------------------
+		//	Realizando a busca
+		consulta = gerenciador.createQuery("select c from Venda c where c.id = :id");
+		consulta.setParameter("id", codigo);
+		venda = (Venda)consulta.getSingleResult();
+		//-------------------------------------------------------------------------
+		//	Preenchendo os dados da venda
+		this.lbl_codigo.setText(""+venda.getId());
+		this.lbl_data.setText(venda.getData());
+		this.lbl_hora.setText(venda.getHora());
+		this.lbl_vendedor.setText(venda.getUsuario().getNome());
+		this.box_pagamanto.setSelectedItem(venda.getPagamento());
+		//---------------------------------------------------------------------------
+		//	Preenchendo a tabela de Itens
+		
+		//---------------------------------------------------------------------------
+		rotina.Fechar(gerenciador);
+		
+    }//GEN-LAST:event_btn_localizarActionPerformed
+
 //=========================================================================================
 //	COMPONENTES DO JFRAME
 //=========================================================================================
@@ -584,6 +628,8 @@ public class GUI_venda extends javax.swing.JInternalFrame {
     private javax.swing.JLabel lbl_busca_produto;
     private javax.swing.JLabel lbl_codigo;
     private javax.swing.JLabel lbl_cv;
+    private javax.swing.JLabel lbl_data;
+    private javax.swing.JLabel lbl_hora;
     private javax.swing.JLabel lbl_itens;
     private javax.swing.JLabel lbl_pagamento;
     private javax.swing.JLabel lbl_quantidade_produto;
