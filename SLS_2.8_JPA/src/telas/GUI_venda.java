@@ -221,6 +221,11 @@ public class GUI_venda extends javax.swing.JInternalFrame {
         btn_ultimo.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btn_ultimo.setForeground(new java.awt.Color(102, 102, 102));
         btn_ultimo.setText("Último");
+        btn_ultimo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_ultimoActionPerformed(evt);
+            }
+        });
 
         btn_localizar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btn_localizar.setForeground(new java.awt.Color(102, 102, 102));
@@ -800,6 +805,55 @@ public class GUI_venda extends javax.swing.JInternalFrame {
 		rotina.Fechar(gerenciador);
 		
     }//GEN-LAST:event_btn_primeiroActionPerformed
+
+    private void btn_ultimoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ultimoActionPerformed
+        
+		gerenciador = rotina.Conectar();
+                  venda = (Venda)rotina.Ultimo(gerenciador, tabela);
+				  
+		//-------------------------------------------------------------------------
+		//	REINICIA O FORMULÁRIO
+		this.ReiniciaFormulario();
+		//-------------------------------------------------------------------------
+		
+		//-------------------------------------------------------------------------
+		//	PREENCHENDO OS DADOS DA VENDA
+		this.lbl_codigo.setText(""+venda.getId());
+		this.lbl_data.setText(venda.getData());
+		this.lbl_hora.setText(venda.getHora());
+		this.lbl_vendedor.setText(venda.getUsuario().getNome());
+		this.box_pagamanto.setSelectedItem(venda.getPagamento());
+		//---------------------------------------------------------------------------
+		
+		//---------------------------------------------------------------------------
+		//	PREENCHENDA A TABELA COM OS ITENS
+		for(int i = 0 ; i < venda.getProdutoVendaList().size() ; i ++){
+
+			produtoVenda = venda.getProdutoVendaList().get(i);
+			DefaultTableModel tbl_def = (DefaultTableModel)this.tbl_itens.getModel();
+			tbl_def.addRow(new Object[] {produtoVenda.getProduto().getId(), produtoVenda.getProduto().getNome(), 
+				produtoVenda.getProduto().getValorVenda(), produtoVenda.getQuantidade()});
+			double item = produtoVenda.getProduto().getValorVenda()*produtoVenda.getQuantidade();
+			this.total += item;
+		}//FOR
+
+			this.lbl_valor.setText(""+total);
+		//---------------------------------------------------------------------------
+		
+		//---------------------------------------------------------------------------
+		//	ORGANIZA O FORMULÁRIO
+		this.btn_novo.setEnabled(false);
+		this.btn_cancelar.setEnabled(true);
+		this.btn_anterior.setEnabled(true);
+		this.btn_proximo.setEnabled(true);
+		this.btn_primeiro.setEnabled(true);
+		this.btn_ultimo.setEnabled(true);
+		this.btn_alterar.setEnabled(true);
+		//---------------------------------------------------------------------------
+
+		rotina.Fechar(gerenciador);
+		
+    }//GEN-LAST:event_btn_ultimoActionPerformed
 
 //=========================================================================================
 //	COMPONENTES DO JFRAME
