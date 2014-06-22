@@ -52,6 +52,21 @@ public class Rotinas {
                 
         }//PERSISTIR
 
+	public void Deletar(EntityManager gerenciador,Object objeto) {
+                 
+                try{//TRATAMENTO DE ERRO
+                        gerenciador.getTransaction().begin();
+                        gerenciador.remove(objeto);
+                        gerenciador.getTransaction().commit();
+                        JOptionPane.showMessageDialog(null, "Removido com sucesso !", 
+                                "Informativo", JOptionPane.INFORMATION_MESSAGE);
+                }catch(Exception ex){
+                        JOptionPane.showMessageDialog(null,"Erro ao remover o objeto ! \n"+
+                                "Erro: "+ex.getMessage(), "Ocorreu um problema !", JOptionPane.WARNING_MESSAGE);
+                }//TRY CATCH
+                
+        }//PERSISTIR
+		
         public void Fechar(EntityManager gerenciador) {
             
                 try{//TRATAMENTO DE ERRO
