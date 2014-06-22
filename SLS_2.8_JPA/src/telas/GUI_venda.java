@@ -468,6 +468,12 @@ public class GUI_venda extends javax.swing.JInternalFrame {
     private void btn_cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancelarActionPerformed
         
 	this.ReiniciaFormulario();
+	
+	for(int i = 0  ; this.tbl_itens.getModel().getRowCount() > 0 ; ++i ){
+		
+		((DefaultTableModel) this.tbl_itens.getModel()).removeRow(0);
+		
+	}//FOR
 		
     }//GEN-LAST:event_btn_cancelarActionPerformed
 
