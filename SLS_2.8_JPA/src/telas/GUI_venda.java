@@ -4,6 +4,7 @@ import classes.ProdutoVenda;
 import classes.Usuario;
 import classes.Venda;
 import funcoes.Rotinas;
+import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 import javax.swing.JOptionPane;
@@ -15,9 +16,10 @@ public class GUI_venda extends javax.swing.JInternalFrame {
 //	VARIÁVEIS GLOBAIS
 //=========================================================================================
 	 
-    EntityManager gerenciador;
+	EntityManager gerenciador;
 	Query consulta;
-    ProdutoVenda produtoVenda = new ProdutoVenda();
+	List<ProdutoVenda> lista;
+	ProdutoVenda produtoVenda = new ProdutoVenda();
 	Rotinas rotina = new Rotinas();
 	Produto produto = new Produto();
 	Usuario usuario = new Usuario();
@@ -607,7 +609,37 @@ public class GUI_venda extends javax.swing.JInternalFrame {
 		//--------------------------------------------------------------------------------------------------
 		//	ALTERA UMA VENDA EXISTENTE
 		if(alterador.equals("altera")){
-			JOptionPane.showMessageDialog(null, "Alterando");
+			
+			int op1 = JOptionPane.showConfirmDialog(null, "Deseja realmente alterar esta venda ?", "Informativo", JOptionPane.INFORMATION_MESSAGE);
+                                             if(op1 == 0){
+									
+						gerenciador = rotina.Conectar();
+						
+						//--------------------------------------------------------------------
+						//	DELETA A TABELA ATUAL
+						consulta = gerenciador.createQuery("select c from ProdutoVenda c where c.venda = : venda");
+						consulta.setParameter("venda", Integer.parseInt(this.lbl_codigo.getText()));
+						lista = consulta.getResultList();
+						
+						for(ProdutoVenda v : lista){
+							
+							rotina.Deletar(gerenciador, v);
+						
+						}//FOR
+						
+						//--------------------------------------------------------------------
+						
+                                                      //--------------------------------------------------------------------
+						//	PREENCHE O OBJETO
+                                                      venda.setId(Integer.parseInt(this.lbl_codigo.getText()));
+                                                      venda.setHora(this.lbl_hora.getText());
+						venda.setData(this.lbl_data.getText());
+//                                                      rotina.Update(gerenciador, categoria, tabela);
+                                                      //--------------------------------------------------------------------
+						rotina.Fechar(gerenciador);
+					}//IF
+						
+			
 		}//IF
 		//--------------------------------------------------------------------------------------------------
     }//GEN-LAST:event_btn_finalizarActionPerformed
