@@ -614,7 +614,6 @@ public class GUI_venda extends javax.swing.JInternalFrame {
                                              if(op1 == 0){
 									
 						gerenciador = rotina.Conectar();
-						JOptionPane.showMessageDialog(null, "Conectou o banco");
 						//--------------------------------------------------------------------
 						//	DELETA A TABELA ATUAL
 						consulta = gerenciador.createQuery("select c from Venda c where c.id = :id");
@@ -624,20 +623,22 @@ public class GUI_venda extends javax.swing.JInternalFrame {
 						consulta = gerenciador.createQuery("select c from ProdutoVenda c where c.venda = :venda");
 						consulta.setParameter("venda", venda);
 						lista = (List<ProdutoVenda>)consulta.getResultList();
-						JOptionPane.showMessageDialog(null, "Pesquisou os produtos da venda");
 						
 						for(ProdutoVenda v : lista){
-							
 							rotina.Deletar(gerenciador, v);
-							JOptionPane.showMessageDialog(null, "Deletou");
 						}//FOR
+						
+						rotina.Fechar(gerenciador);
+						JOptionPane.showMessageDialog(null, "Deletou a tabela");
 						//--------------------------------------------------------------------
 						
                                                       //--------------------------------------------------------------------
 						//	PREENCHE A NOVA TABELA
+						
+						
 						for(int i = 0  ; this.tbl_itens.getModel().getRowCount() > 0 ; ++i ){
-
 							gerenciador = rotina.Conectar();
+							
 							//Preenchendo Entidade 'produtoVenda'
 							produtoVenda.setId(null);
 							//Seta a venda do item
@@ -659,10 +660,11 @@ public class GUI_venda extends javax.swing.JInternalFrame {
 							rotina.Fechar(gerenciador);
 
 							((DefaultTableModel) this.tbl_itens.getModel()).removeRow(0);
+							JOptionPane.showMessageDialog(null, "Salvou um novo");
 
 						}//FOR
                                                       //--------------------------------------------------------------------
-						rotina.Fechar(gerenciador);
+
 					}//IF
 						
 			
