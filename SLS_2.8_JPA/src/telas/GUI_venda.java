@@ -614,27 +614,53 @@ public class GUI_venda extends javax.swing.JInternalFrame {
                                              if(op1 == 0){
 									
 						gerenciador = rotina.Conectar();
-						
+						JOptionPane.showMessageDialog(null, "Conectou o banco");
 						//--------------------------------------------------------------------
 						//	DELETA A TABELA ATUAL
-						consulta = gerenciador.createQuery("select c from ProdutoVenda c where c.venda = : venda");
-						consulta.setParameter("venda", Integer.parseInt(this.lbl_codigo.getText()));
-						lista = consulta.getResultList();
+						consulta = gerenciador.createQuery("select c from Venda c where c.id = :id");
+						consulta.setParameter("id", Integer.parseInt(this.lbl_codigo.getText()));
+						venda = (Venda)consulta.getSingleResult();
+						//==============================================================
+						consulta = gerenciador.createQuery("select c from ProdutoVenda c where c.venda = :venda");
+						consulta.setParameter("venda", venda);
+						lista = (List<ProdutoVenda>)consulta.getResultList();
+						JOptionPane.showMessageDialog(null, "Pesquisou os produtos da venda");
 						
 						for(ProdutoVenda v : lista){
 							
 							rotina.Deletar(gerenciador, v);
-						
+							JOptionPane.showMessageDialog(null, "Deletou");
 						}//FOR
-						
 						//--------------------------------------------------------------------
 						
                                                       //--------------------------------------------------------------------
-						//	PREENCHE O OBJETO
-                                                      venda.setId(Integer.parseInt(this.lbl_codigo.getText()));
-                                                      venda.setHora(this.lbl_hora.getText());
-						venda.setData(this.lbl_data.getText());
-//                                                      rotina.Update(gerenciador, categoria, tabela);
+						//	PREENCHE A NOVA TABELA
+						for(int i = 0  ; this.tbl_itens.getModel().getRowCount() > 0 ; ++i ){
+
+							gerenciador = rotina.Conectar();
+							//Preenchendo Entidade 'produtoVenda'
+							produtoVenda.setId(null);
+							//Seta a venda do item
+							consulta = gerenciador.createQuery("select c from Venda c order by c.id desc");//HQL
+							consulta.setMaxResults(1);//Captura o último registro
+							venda = (Venda)consulta.getSingleResult();
+							produtoVenda.setVenda(venda);//Adiciona a venda que foi criada
+							//===================================================
+							int id = (Integer) this.tbl_itens.getModel().getValueAt(0, 0);
+							consulta = gerenciador.createQuery("select c from Produto c where c.id = :id");
+							consulta.setParameter("id", id);
+							produto = (Produto) consulta.getSingleResult();
+							produtoVenda.setProduto(produto);//Adiciona o produto
+							//Salva a quantidade que foi vendida
+							int qtd = (Integer) this.tbl_itens.getModel().getValueAt(0, 3);
+							produtoVenda.setQuantidade(qtd);//Adiciona o produto
+
+							rotina.Persistir(gerenciador, produtoVenda);//SALVA O ITEM DA VENDA
+							rotina.Fechar(gerenciador);
+
+							((DefaultTableModel) this.tbl_itens.getModel()).removeRow(0);
+
+						}//FOR
                                                       //--------------------------------------------------------------------
 						rotina.Fechar(gerenciador);
 					}//IF
