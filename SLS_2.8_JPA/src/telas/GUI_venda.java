@@ -554,8 +554,7 @@ public class GUI_venda extends javax.swing.JInternalFrame {
 
     private void btn_finalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_finalizarActionPerformed
 
-		//-----------------------------------------------------------------------------
-		//	SALVAR UMA NOVA VENDA
+//			SALVAR UMA NOVA VENDA
 		if(alterador.equals("salva")){
 			
 			gerenciador = rotina.Conectar();
@@ -600,6 +599,8 @@ public class GUI_venda extends javax.swing.JInternalFrame {
 				((DefaultTableModel) this.tbl_itens.getModel()).removeRow(0);
 
 			}//FOR
+			
+			JOptionPane.showMessageDialog(null, "Venda finalizada.");
 
 			this.ReiniciaFormulario();
 		
@@ -629,7 +630,6 @@ public class GUI_venda extends javax.swing.JInternalFrame {
 						}//FOR
 						
 						rotina.Fechar(gerenciador);
-						JOptionPane.showMessageDialog(null, "Deletou a tabela");
 						//--------------------------------------------------------------------
 						
                                                       //--------------------------------------------------------------------
@@ -660,11 +660,14 @@ public class GUI_venda extends javax.swing.JInternalFrame {
 							rotina.Fechar(gerenciador);
 
 							((DefaultTableModel) this.tbl_itens.getModel()).removeRow(0);
-							JOptionPane.showMessageDialog(null, "Salvou um novo");
 
 						}//FOR
                                                       //--------------------------------------------------------------------
-
+						
+						JOptionPane.showMessageDialog(null, "Venda alterada.");
+						
+						this.ReiniciaFormulario();
+						
 					}//IF
 						
 			
