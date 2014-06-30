@@ -523,19 +523,35 @@ public class GUI_venda extends javax.swing.JInternalFrame {
     private void btn_adicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_adicionarActionPerformed
         
 		gerenciador = rotina.Conectar();
-		
 		int quantidade = Integer.parseInt(this.txt_quantidade_produto.getText());
 		produto = rotina.AdicionaIten(gerenciador, Integer.parseInt(this.txt_busca_produto.getText()));
-		
-		
-		DefaultTableModel tbl_def = (DefaultTableModel)this.tbl_itens.getModel();
-		tbl_def.addRow(new Object[] {produto.getId(), produto.getNome(), produto.getValorVenda(), quantidade});
-		
-		double item = produto.getValorVenda()*quantidade;
-		this.total += item;
-		this.lbl_valor.setText(""+total);
-		
 		rotina.Fechar(gerenciador);
+		
+		if(produto.getEstoque() == 0){
+			JOptionPane.showMessageDialog(null, "Não existem produtos em estoque.");
+		}else if(produto.getEstoque() != 0 && produto.getEstoque() < quantidade){
+			JOptionPane.showMessageDialog(null, "Restam apenas "+produto.getEstoque()+" produtos em estoque\n"
+			+"Não é possível realizar esta venda.");
+		}else if(produto.getEstoque() >= quantidade){
+			
+			gerenciador = rotina.Conectar();
+		
+			DefaultTableModel tbl_def = (DefaultTableModel)this.tbl_itens.getModel();
+			tbl_def.addRow(new Object[] {produto.getId(), produto.getNome(), produto.getValorVenda(), quantidade});
+
+			//Baixa do estoque
+			produto.setEstoque(produto.getEstoque() - quantidade);
+			rotina.Update(gerenciador, produto , "Produto");
+			
+			//Total da venda
+			double item = produto.getValorVenda()*quantidade;
+			this.total += item;
+			this.lbl_valor.setText(""+total);
+		
+		}//IF
+		
+		
+		
 		
     }//GEN-LAST:event_btn_adicionarActionPerformed
 
@@ -547,9 +563,16 @@ public class GUI_venda extends javax.swing.JInternalFrame {
         double item = qtd * vlr;
         total -= item;
         this.lbl_valor.setText(""+total);
-        
-        ((DefaultTableModel) this.tbl_itens.getModel()).removeRow(linha);
-        
+	
+	gerenciador = rotina.Conectar();
+	int codigo = (Integer)this.tbl_itens.getModel().getValueAt(linha, 0);
+	produto = (Produto)rotina.Localiza(gerenciador, codigo, "Produto");
+	produto.setEstoque(produto.getEstoque() +qtd);
+	rotina.Update(gerenciador, produto, "Produto");
+	rotina.Fechar(gerenciador);
+	
+	((DefaultTableModel) this.tbl_itens.getModel()).removeRow(linha);
+		
     }//GEN-LAST:event_btn_removerActionPerformed
 
     private void btn_finalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_finalizarActionPerformed
