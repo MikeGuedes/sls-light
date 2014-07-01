@@ -6,18 +6,21 @@ import funcoes.Rotinas;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
+import javax.swing.table.DefaultTableModel;
 
 public class GUI_estoque extends javax.swing.JInternalFrame {
 
 	EntityManager gerenciador;
 	Query consulta;
 	List<Categoria>lista;
+	List<Produto>listaProd;
 	Rotinas rotina = new Rotinas();
 	Produto produto = new Produto();
 
 	public GUI_estoque() {
 		initComponents();
 		this.ListaCategorias();
+		this.ReiniciaFormulario();
 	}//CONSTRUTOR
 
 	@SuppressWarnings("unchecked")
@@ -38,9 +41,10 @@ public class GUI_estoque extends javax.swing.JInternalFrame {
         lbl_cod = new javax.swing.JLabel();
         lbl_desc = new javax.swing.JLabel();
         lbl_est = new javax.swing.JLabel();
-        txt_nome1 = new javax.swing.JTextField();
+        txt_qtd = new javax.swing.JTextField();
         lbl_buscar4 = new javax.swing.JLabel();
         btn_adicionar = new javax.swing.JButton();
+        cod = new javax.swing.JLabel();
 
         setClosable(true);
 
@@ -102,13 +106,14 @@ public class GUI_estoque extends javax.swing.JInternalFrame {
                     .addComponent(lbl_categoria)
                     .addComponent(lbl_codigo))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txt_codigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(btn_busca_codigo)
                         .addContainerGap())
-                    .addComponent(box_categoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_busca_categoria)))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(box_categoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btn_busca_categoria))))
         );
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
@@ -138,13 +143,18 @@ public class GUI_estoque extends javax.swing.JInternalFrame {
         });
         tbl_itens.getTableHeader().setResizingAllowed(false);
         tbl_itens.getTableHeader().setReorderingAllowed(false);
+        tbl_itens.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbl_itensMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tbl_itens);
 
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
         lbl_cod.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         lbl_cod.setForeground(new java.awt.Color(0, 102, 153));
-        lbl_cod.setText("Código");
+        lbl_cod.setText("Código:");
 
         lbl_desc.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         lbl_desc.setForeground(new java.awt.Color(0, 102, 153));
@@ -154,9 +164,9 @@ public class GUI_estoque extends javax.swing.JInternalFrame {
         lbl_est.setForeground(new java.awt.Color(0, 102, 153));
         lbl_est.setText("Produtos em estoque:");
 
-        txt_nome1.setBackground(new java.awt.Color(255, 255, 204));
-        txt_nome1.setForeground(new java.awt.Color(102, 102, 102));
-        txt_nome1.setText("0");
+        txt_qtd.setBackground(new java.awt.Color(255, 255, 204));
+        txt_qtd.setForeground(new java.awt.Color(102, 102, 102));
+        txt_qtd.setText("0");
 
         lbl_buscar4.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         lbl_buscar4.setForeground(new java.awt.Color(0, 102, 153));
@@ -171,6 +181,9 @@ public class GUI_estoque extends javax.swing.JInternalFrame {
             }
         });
 
+        cod.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        cod.setText("Código");
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -180,11 +193,14 @@ public class GUI_estoque extends javax.swing.JInternalFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lbl_desc)
                     .addComponent(lbl_est)
-                    .addComponent(lbl_cod))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(lbl_cod)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(cod)))
+                .addGap(185, 185, 185)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(lbl_buscar4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(txt_nome1, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txt_qtd, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btn_adicionar))
         );
@@ -194,14 +210,15 @@ public class GUI_estoque extends javax.swing.JInternalFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbl_cod)
-                    .addComponent(lbl_buscar4))
+                    .addComponent(lbl_buscar4)
+                    .addComponent(cod))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(lbl_desc)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lbl_est))
-                    .addComponent(txt_nome1)))
+                    .addComponent(txt_qtd)))
             .addComponent(btn_adicionar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
@@ -209,7 +226,7 @@ public class GUI_estoque extends javax.swing.JInternalFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 500, Short.MAX_VALUE)
+            .addComponent(jScrollPane1)
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
@@ -246,6 +263,14 @@ public class GUI_estoque extends javax.swing.JInternalFrame {
 
     private void btn_adicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_adicionarActionPerformed
 
+		gerenciador = rotina.Conectar();
+		int qtd = Integer.parseInt(this.txt_qtd.getText());
+		produto.setEstoque(produto.getEstoque() + qtd);
+		rotina.Update(gerenciador, produto, "Produto");
+		rotina.Fechar(gerenciador);
+		
+		this.ReiniciaFormulario();
+		
     }//GEN-LAST:event_btn_adicionarActionPerformed
 
     private void btn_busca_codigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_busca_codigoActionPerformed
@@ -255,15 +280,59 @@ public class GUI_estoque extends javax.swing.JInternalFrame {
 		int codigo = Integer.parseInt(this.txt_codigo.getText());
 		produto = (Produto)rotina.Localiza(gerenciador, codigo, "Produto");
 		
-		this.lbl_cod.setText("Código: "+produto.getId());
+		this.cod.setText(""+produto.getId());
 		this.lbl_desc.setText("Descrição: "+produto.getNome());
 		this.lbl_est.setText("Produtos em estoque: "+produto.getEstoque());
+		
+		this.txt_qtd.setEnabled(true);
+		this.btn_adicionar.setEnabled(true);
+		
+		rotina.Fechar(gerenciador);
 		
     }//GEN-LAST:event_btn_busca_codigoActionPerformed
 
     private void btn_busca_categoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_busca_categoriaActionPerformed
-        // TODO add your handling code here:
+			
+		for(int i = 0  ; this.tbl_itens.getModel().getRowCount() > 0 ; ++i ){
+			((DefaultTableModel) this.tbl_itens.getModel()).removeRow(0);
+		}
+		
+		gerenciador = rotina.Conectar();
+		consulta = gerenciador.createQuery("select c from Produto c");
+		listaProd = consulta.getResultList();
+		
+		if(this.box_categoria.getSelectedItem().equals("Todas")){
+			for(Produto u : listaProd){
+				DefaultTableModel tbl_itens = (DefaultTableModel)this.tbl_itens.getModel();
+				tbl_itens.addRow(new Object[] {u.getId(), u.getNome(), u.getLocalizacao(), u.getEstoque()});
+			}//FOR
+		}else{
+			for(Produto u : listaProd){
+				if(u.getCategoria().getNome().equals(this.box_categoria.getSelectedItem())){
+					DefaultTableModel tbl_itens = (DefaultTableModel)this.tbl_itens.getModel();
+					tbl_itens.addRow(new Object[] {u.getId(), u.getNome(), u.getLocalizacao(), u.getEstoque()});
+				}//IF
+			}//FOR
+		}//IF
     }//GEN-LAST:event_btn_busca_categoriaActionPerformed
+
+    private void tbl_itensMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_itensMouseClicked
+        
+		int linha  = this.tbl_itens.getSelectedRow();
+		
+		for(Produto u : listaProd){
+			if(u.getId() == (Integer)this.tbl_itens.getModel().getValueAt(linha, 0)){
+				this.cod.setText(""+u.getId());
+				this.lbl_desc.setText("Descrição: "+u.getNome());
+				this.lbl_est.setText("Produtos em estoque: "+u.getEstoque());
+				produto = u;
+			}//IF
+		}//FOR
+		
+		this.txt_qtd.setEnabled(true);
+		this.btn_adicionar.setEnabled(true);
+		
+    }//GEN-LAST:event_tbl_itensMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -271,6 +340,7 @@ public class GUI_estoque extends javax.swing.JInternalFrame {
     private javax.swing.JButton btn_adicionar;
     private javax.swing.JButton btn_busca_categoria;
     private javax.swing.JButton btn_busca_codigo;
+    private javax.swing.JLabel cod;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -283,7 +353,7 @@ public class GUI_estoque extends javax.swing.JInternalFrame {
     private javax.swing.JLabel lbl_est;
     private javax.swing.JTable tbl_itens;
     private javax.swing.JTextField txt_codigo;
-    private javax.swing.JTextField txt_nome1;
+    private javax.swing.JTextField txt_qtd;
     // End of variables declaration//GEN-END:variables
 	
 	public void ListaCategorias(){
@@ -299,5 +369,16 @@ public class GUI_estoque extends javax.swing.JInternalFrame {
                   rotina.Fechar(gerenciador);
          
          }//LISTA CATEGORIAS
+	
+	public void ReiniciaFormulario(){
+	
+		this.txt_qtd.setText("0");
+		this.txt_qtd.setEnabled(false);
+		this.btn_adicionar.setEnabled(false);
+		this.cod.setText("");
+		this.lbl_desc.setText("Descrição: ");
+		this.lbl_est.setText("Produtos em estoque: ");
+		
+	}//REINICIA O FORMULARIO
 	
 }//CLASS
