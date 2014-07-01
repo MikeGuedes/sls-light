@@ -13,7 +13,7 @@ import javax.swing.table.DefaultTableModel;
 public class GUI_venda extends javax.swing.JInternalFrame {
     
 //=========================================================================================
-//	VARIÁVEIS GLOBAIS
+//	VARIÁVEIS GLOBAIS 
 //=========================================================================================
 	 
 	EntityManager gerenciador;
