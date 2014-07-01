@@ -271,7 +271,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="99" green="66" red="0" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Total de produtos vendidos: "/>
+            <Property name="text" type="java.lang.String" value="Total de itens vendidos: "/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lbl_cv4">
@@ -282,7 +282,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="99" green="66" red="0" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Total de arrecadado desde o in&#xed;cio: "/>
+            <Property name="text" type="java.lang.String" value="Total bruto arrecadado desde o in&#xed;cio: "/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lbl_cv5">
