@@ -66,9 +66,11 @@ public class GUI_principal extends javax.swing.JFrame {
         mnu_manUsu = new javax.swing.JMenuItem();
         mnu_manCat = new javax.swing.JMenuItem();
         mnu_manEst = new javax.swing.JMenuItem();
+        mnu_encer = new javax.swing.JMenu();
         mnu_mov = new javax.swing.JMenu();
         mnu_movVen = new javax.swing.JMenuItem();
-        mnu_encer = new javax.swing.JMenu();
+        mnu_rel = new javax.swing.JMenu();
+        mnu_rel_res = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("SLS 1.0");
@@ -270,6 +272,20 @@ public class GUI_principal extends javax.swing.JFrame {
         });
         mnu_man.add(mnu_manEst);
 
+        mnu_encer.setBackground(new java.awt.Color(102, 102, 102));
+        mnu_encer.setText("Encerrar o sistema");
+        mnu_encer.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                mnu_encerMouseClicked(evt);
+            }
+        });
+        mnu_encer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnu_encerActionPerformed(evt);
+            }
+        });
+        mnu_man.add(mnu_encer);
+
         mnu_menu.add(mnu_man);
 
         mnu_mov.setBackground(new java.awt.Color(102, 102, 102));
@@ -286,19 +302,17 @@ public class GUI_principal extends javax.swing.JFrame {
 
         mnu_menu.add(mnu_mov);
 
-        mnu_encer.setBackground(new java.awt.Color(102, 102, 102));
-        mnu_encer.setText("Encerrar o sistema");
-        mnu_encer.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                mnu_encerMouseClicked(evt);
-            }
-        });
-        mnu_encer.addActionListener(new java.awt.event.ActionListener() {
+        mnu_rel.setText("Relatórios");
+
+        mnu_rel_res.setText("Resumo");
+        mnu_rel_res.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mnu_encerActionPerformed(evt);
+                mnu_rel_resActionPerformed(evt);
             }
         });
-        mnu_menu.add(mnu_encer);
+        mnu_rel.add(mnu_rel_res);
+
+        mnu_menu.add(mnu_rel);
 
         setJMenuBar(mnu_menu);
 
@@ -431,6 +445,12 @@ public class GUI_principal extends javax.swing.JFrame {
 		
     }//GEN-LAST:event_mnu_manEstActionPerformed
 
+    private void mnu_rel_resActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnu_rel_resActionPerformed
+		
+		new GUI_resumo().setVisible(true);
+		
+    }//GEN-LAST:event_mnu_rel_resActionPerformed
+
 //=========================================================================================
 //	MÉTODO MAIN
 //=========================================================================================
@@ -500,6 +520,8 @@ public class GUI_principal extends javax.swing.JFrame {
     private javax.swing.JMenuBar mnu_menu;
     private javax.swing.JMenu mnu_mov;
     private javax.swing.JMenuItem mnu_movVen;
+    private javax.swing.JMenu mnu_rel;
+    private javax.swing.JMenuItem mnu_rel_res;
     private javax.swing.JPanel painel;
     private javax.swing.JSeparator separador1;
     // End of variables declaration//GEN-END:variables
