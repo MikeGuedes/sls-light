@@ -2,6 +2,7 @@ package telas;
 
 import classes.Categoria;
 import classes.Produto;
+import classes.ProdutoVenda;
 import classes.Usuario;
 import classes.Venda;
 import funcoes.Rotinas;
@@ -18,6 +19,7 @@ public class GUI_resumo extends javax.swing.JFrame {
 	List<Produto>listaPro;
 	List<Venda>listaVen;
 	List<Usuario>listaUsu;
+	List<ProdutoVenda>listaProdVen;
 	
 	public GUI_resumo() {
 		initComponents();
@@ -80,11 +82,11 @@ public class GUI_resumo extends javax.swing.JFrame {
 
         lbl_cv3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         lbl_cv3.setForeground(new java.awt.Color(0, 102, 153));
-        lbl_cv3.setText("Total de produtos vendidos: ");
+        lbl_cv3.setText("Total de itens vendidos: ");
 
         lbl_cv4.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         lbl_cv4.setForeground(new java.awt.Color(0, 102, 153));
-        lbl_cv4.setText("Total de arrecadado desde o início: ");
+        lbl_cv4.setText("Total bruto arrecadado desde o início: ");
 
         lbl_cv5.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         lbl_cv5.setForeground(new java.awt.Color(0, 102, 153));
@@ -439,8 +441,14 @@ public class GUI_resumo extends javax.swing.JFrame {
 		//BUSCA TODOS OS PRODUTOS======================================================
 		consulta = gerenciador.createQuery("select c from Produto c");
 		listaPro = consulta.getResultList();
+		int estoque = 0;
+		for(Produto p : listaPro){
+			estoque += p.getEstoque();
+		}
 		//Total de produtos cadastrador:
 		this.lbl_2.setText(""+listaPro.size());
+		//Total de produtos em estoque:
+		this.lbl_7.setText(""+estoque);
 		
 		//BUSCA TODAS AS VENDAS=========================================================
 		consulta = gerenciador.createQuery("select c from Venda c");
@@ -453,6 +461,27 @@ public class GUI_resumo extends javax.swing.JFrame {
 		listaUsu = consulta.getResultList();
 		//Total de usuários cadastrados:
 		this.lbl_8.setText(""+listaUsu.size());
+		
+		//BUSCA TODOS OS ITENS VENDIDOS==================================================
+		consulta = gerenciador.createQuery("select c from ProdutoVenda c");
+		listaProdVen = consulta.getResultList();
+		int qtdVendida = 0;
+		double totalBruto = 0 , totalHoje =0;
+		for(ProdutoVenda u : listaProdVen){
+			qtdVendida += u.getQuantidade();
+			totalBruto += u.getProduto().getValorVenda() * u.getQuantidade();
+			
+			
+			if(u.getVenda().getData().equals(GUI_principal.data)){
+				totalHoje += u.getProduto().getValorVenda() * u.getQuantidade();
+			}
+		}
+		//Total de itens vendidos:
+		this.lbl_4.setText(""+qtdVendida);
+		//Total bruto arrecadado:
+		this.lbl_5.setText("R$ "+totalBruto);
+		//Total arrecadado hoje:
+		this.lbl_6.setText("R$ "+totalHoje);
 		
 		rotina.Fechar(gerenciador);
 	
