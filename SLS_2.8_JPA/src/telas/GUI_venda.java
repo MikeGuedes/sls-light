@@ -9,6 +9,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.Query;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import telas.GUI_principal;
+import telas.GUI_principal;
 //----------------------------------------------------	
 public class GUI_venda extends javax.swing.JInternalFrame {
     
