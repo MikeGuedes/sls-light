@@ -1,5 +1,6 @@
 package telas;
 import java.awt.Dimension;
+import java.awt.Toolkit;
 import static java.lang.Thread.sleep;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
@@ -30,7 +31,7 @@ public class GUI_principal extends javax.swing.JFrame {
                 //Ajusta a imagem de fundo com a resolução do seu monitor
                 //lbl_imagemfundo.setSize(this.getWidth(), this.getHeight());        
                 DataHora(); //Configura a data e horário atual
-                
+                setIcon();
         }//CONSTRUTOR
 
 //=========================================================================================
@@ -626,5 +627,11 @@ public class GUI_principal extends javax.swing.JFrame {
         .start();
     
     }//DATA HORA
+
+    private void setIcon() {
+        
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/imagens/venda48.png")));
+    
+    }//ICONE 
 
 }//CLASS
