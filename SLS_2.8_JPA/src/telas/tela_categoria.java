@@ -52,7 +52,7 @@ public class tela_categoria extends javax.swing.JFrame {
         btn_localizar = new javax.swing.JButton();
         btn_alterar = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
 
         pnl_principal.setPreferredSize(new java.awt.Dimension(990, 460));
