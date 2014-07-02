@@ -66,11 +66,11 @@ public class GUI_principal extends javax.swing.JFrame {
         mnu_manUsu = new javax.swing.JMenuItem();
         mnu_manCat = new javax.swing.JMenuItem();
         mnu_manEst = new javax.swing.JMenuItem();
-        mnu_encer = new javax.swing.JMenu();
         mnu_mov = new javax.swing.JMenu();
         mnu_movVen = new javax.swing.JMenuItem();
         mnu_rel = new javax.swing.JMenu();
         mnu_rel_res = new javax.swing.JMenuItem();
+        mnu_encer = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("SLS 1.0");
@@ -272,20 +272,6 @@ public class GUI_principal extends javax.swing.JFrame {
         });
         mnu_man.add(mnu_manEst);
 
-        mnu_encer.setBackground(new java.awt.Color(102, 102, 102));
-        mnu_encer.setText("Encerrar o sistema");
-        mnu_encer.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                mnu_encerMouseClicked(evt);
-            }
-        });
-        mnu_encer.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mnu_encerActionPerformed(evt);
-            }
-        });
-        mnu_man.add(mnu_encer);
-
         mnu_menu.add(mnu_man);
 
         mnu_mov.setBackground(new java.awt.Color(102, 102, 102));
@@ -313,6 +299,20 @@ public class GUI_principal extends javax.swing.JFrame {
         mnu_rel.add(mnu_rel_res);
 
         mnu_menu.add(mnu_rel);
+
+        mnu_encer.setBackground(new java.awt.Color(102, 102, 102));
+        mnu_encer.setText("Encerrar o sistema");
+        mnu_encer.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                mnu_encerMouseClicked(evt);
+            }
+        });
+        mnu_encer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnu_encerActionPerformed(evt);
+            }
+        });
+        mnu_menu.add(mnu_encer);
 
         setJMenuBar(mnu_menu);
 
@@ -343,26 +343,17 @@ public class GUI_principal extends javax.swing.JFrame {
 
     private void mnu_manUsuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnu_manUsuActionPerformed
         // Novo cadastro de usuario
-        GUI_usuario novo = new GUI_usuario();
-        painel.add(novo);
-        this.CentralizaForm(novo);
-        novo.setVisible(true);
+        new tela_usuario().setVisible(true);
     }//GEN-LAST:event_mnu_manUsuActionPerformed
 
     private void btn_venActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_venActionPerformed
         // Nova venda
-        GUI_venda novo = new GUI_venda();
-        painel.add(novo);
-        this.CentralizaForm(novo);
-        novo.setVisible(true);
+        new tela_venda().setVisible(true);
     }//GEN-LAST:event_btn_venActionPerformed
 
     private void mnu_cadProActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnu_cadProActionPerformed
         // Novo produto 
-        GUI_produto novo = new GUI_produto();
-        painel.add(novo);
-        this.CentralizaForm(novo);
-        novo.setVisible(true);
+        new tela_produto().setVisible(true);
         
     }//GEN-LAST:event_mnu_cadProActionPerformed
 
@@ -380,26 +371,17 @@ public class GUI_principal extends javax.swing.JFrame {
 
     private void btn_proActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_proActionPerformed
         // Novo cadastro de produto
-        GUI_produto novo = new GUI_produto();
-        painel.add(novo);
-        this.CentralizaForm(novo);
-        novo.setVisible(true);
+        new tela_produto().setVisible(true);
     }//GEN-LAST:event_btn_proActionPerformed
 
     private void btn_usuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_usuActionPerformed
         // Novo cadastro de usuario
-        GUI_usuario novo = new GUI_usuario();
-        painel.add(novo);
-        this.CentralizaForm(novo);
-        novo.setVisible(true);
+        new tela_usuario().setVisible(true);
     }//GEN-LAST:event_btn_usuActionPerformed
 
     private void mnu_movVenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnu_movVenActionPerformed
         // Novo venda ou troca
-        GUI_venda novo = new GUI_venda();
-        painel.add(novo);
-        this.CentralizaForm(novo);
-        novo.setVisible(true);
+        new tela_venda().setVisible(true);
     }//GEN-LAST:event_mnu_movVenActionPerformed
 
     private void lbl_dataMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_dataMouseClicked
@@ -413,10 +395,7 @@ public class GUI_principal extends javax.swing.JFrame {
          }//GEN-LAST:event_btn_troActionPerformed
 
          private void mnu_manCatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnu_manCatActionPerformed
-                  GUI_categoria novo = new GUI_categoria();
-                  painel.add(novo);
-                  this.CentralizaForm(novo);
-                  novo.setVisible(true);
+                  new tela_categoria().setVisible(true);
          }//GEN-LAST:event_mnu_manCatActionPerformed
 
          private void mnu_manActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnu_manActionPerformed
@@ -437,12 +416,7 @@ public class GUI_principal extends javax.swing.JFrame {
          }//GEN-LAST:event_mnu_encerMouseClicked
 
     private void mnu_manEstActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnu_manEstActionPerformed
-        
-		GUI_estoque novo = new GUI_estoque();
-                  painel.add(novo);
-                  this.CentralizaForm(novo);
-                  novo.setVisible(true);
-		
+        new tela_estoque().setVisible(true);
     }//GEN-LAST:event_mnu_manEstActionPerformed
 
     private void mnu_rel_resActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnu_rel_resActionPerformed
@@ -545,6 +519,7 @@ public class GUI_principal extends javax.swing.JFrame {
                                     this.btn_usu.setEnabled(false);
                                     this.mnu_man.setEnabled(false);
                                     this.mnu_cad.setEnabled(false);
+                                    this.mnu_rel.setEnabled(false);
                                     break;
                   }//SWITCH
          }//CONFIGURAÇÃO
