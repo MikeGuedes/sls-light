@@ -53,6 +53,7 @@ public class tela_categoria extends javax.swing.JFrame {
         btn_alterar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Cadastro e manutenção de categoria");
         setResizable(false);
 
         pnl_principal.setBackground(new java.awt.Color(51, 51, 51));

@@ -83,6 +83,7 @@ public class tela_venda extends javax.swing.JFrame {
         btn_finalizar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Vendas");
         setResizable(false);
 
         pnl_principal.setBackground(new java.awt.Color(51, 51, 51));

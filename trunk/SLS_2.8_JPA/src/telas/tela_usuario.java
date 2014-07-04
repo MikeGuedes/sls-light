@@ -67,6 +67,7 @@ public class tela_usuario extends javax.swing.JFrame {
         txt_salario = new javax.swing.JFormattedTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Cadastro e manutenção de usuário");
         setResizable(false);
 
         pnl_principal.setBackground(new java.awt.Color(51, 51, 51));

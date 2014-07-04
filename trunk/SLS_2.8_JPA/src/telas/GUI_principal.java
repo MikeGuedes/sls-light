@@ -75,7 +75,7 @@ public class GUI_principal extends javax.swing.JFrame {
         mnu_encer = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("SLS 1.0");
+        setTitle("mjSoft SLS Light");
         setBackground(new java.awt.Color(0, 0, 0));
         setMinimumSize(new java.awt.Dimension(900, 100));
         setResizable(false);

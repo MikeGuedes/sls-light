@@ -72,6 +72,7 @@ public class tela_produto extends javax.swing.JFrame {
         lbl_msg = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Cadastro e manutenção de produto");
         setResizable(false);
 
         pnl_principal.setBackground(new java.awt.Color(51, 51, 51));
