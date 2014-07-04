@@ -49,19 +49,24 @@ public class tela_estoque extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
 
+        jPanel1.setBackground(new java.awt.Color(51, 51, 51));
         jPanel1.setBorder(null);
 
+        jPanel2.setBackground(new java.awt.Color(51, 51, 51));
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+
+        box_categoria.setBackground(new java.awt.Color(204, 204, 204));
 
         lbl_categoria.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         lbl_categoria.setForeground(new java.awt.Color(0, 102, 153));
         lbl_categoria.setText("Categoria:");
 
-        txt_codigo.setBackground(new java.awt.Color(255, 255, 204));
+        txt_codigo.setBackground(new java.awt.Color(204, 204, 204));
         txt_codigo.setForeground(new java.awt.Color(102, 102, 102));
 
+        btn_busca_codigo.setBackground(new java.awt.Color(51, 51, 51));
         btn_busca_codigo.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btn_busca_codigo.setForeground(new java.awt.Color(102, 102, 102));
+        btn_busca_codigo.setForeground(new java.awt.Color(255, 255, 255));
         btn_busca_codigo.setText("Buscar");
         btn_busca_codigo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -73,8 +78,9 @@ public class tela_estoque extends javax.swing.JFrame {
         lbl_codigo.setForeground(new java.awt.Color(0, 102, 153));
         lbl_codigo.setText("Código");
 
+        btn_busca_categoria.setBackground(new java.awt.Color(51, 51, 51));
         btn_busca_categoria.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btn_busca_categoria.setForeground(new java.awt.Color(102, 102, 102));
+        btn_busca_categoria.setForeground(new java.awt.Color(255, 255, 255));
         btn_busca_categoria.setText("Buscar");
         btn_busca_categoria.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -119,8 +125,10 @@ public class tela_estoque extends javax.swing.JFrame {
                         .addComponent(btn_busca_categoria))))
         );
 
+        jPanel3.setBackground(new java.awt.Color(51, 51, 51));
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
+        tbl_itens.setBackground(new java.awt.Color(204, 204, 204));
         tbl_itens.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -153,6 +161,7 @@ public class tela_estoque extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tbl_itens);
 
+        jPanel4.setBackground(new java.awt.Color(51, 51, 51));
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
         lbl_cod.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
@@ -167,7 +176,7 @@ public class tela_estoque extends javax.swing.JFrame {
         lbl_est.setForeground(new java.awt.Color(0, 102, 153));
         lbl_est.setText("Produtos em estoque:");
 
-        txt_qtd.setBackground(new java.awt.Color(255, 255, 204));
+        txt_qtd.setBackground(new java.awt.Color(204, 204, 204));
         txt_qtd.setForeground(new java.awt.Color(102, 102, 102));
         txt_qtd.setText("0");
 
@@ -175,8 +184,9 @@ public class tela_estoque extends javax.swing.JFrame {
         lbl_buscar4.setForeground(new java.awt.Color(0, 102, 153));
         lbl_buscar4.setText("Adicionar itens");
 
+        btn_adicionar.setBackground(new java.awt.Color(51, 51, 51));
         btn_adicionar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btn_adicionar.setForeground(new java.awt.Color(102, 102, 102));
+        btn_adicionar.setForeground(new java.awt.Color(255, 255, 255));
         btn_adicionar.setText("Adicionar");
         btn_adicionar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -185,6 +195,7 @@ public class tela_estoque extends javax.swing.JFrame {
         });
 
         cod.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        cod.setForeground(new java.awt.Color(102, 255, 255));
         cod.setText("Código");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
@@ -200,7 +211,7 @@ public class tela_estoque extends javax.swing.JFrame {
                         .addComponent(lbl_cod)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(cod)))
-                .addGap(185, 185, 185)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(lbl_buscar4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(txt_qtd, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -229,8 +240,10 @@ public class tela_estoque extends javax.swing.JFrame {
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1)
             .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addComponent(jScrollPane1)
+                .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -259,7 +272,7 @@ public class tela_estoque extends javax.swing.JFrame {
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(0, 0, 0))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -270,9 +283,7 @@ public class tela_estoque extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
