@@ -85,13 +85,15 @@ public class tela_venda extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
 
+        pnl_principal.setBackground(new java.awt.Color(51, 51, 51));
         pnl_principal.setPreferredSize(new java.awt.Dimension(520, 460));
         pnl_principal.setRequestFocusEnabled(false);
 
-        pnl_titulo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102), 3));
+        pnl_titulo.setBackground(new java.awt.Color(51, 51, 51));
+        pnl_titulo.setBorder(null);
 
         lbl_titulo.setFont(new java.awt.Font("Tahoma", 3, 18)); // NOI18N
-        lbl_titulo.setForeground(new java.awt.Color(0, 102, 153));
+        lbl_titulo.setForeground(new java.awt.Color(255, 255, 255));
         lbl_titulo.setText("Formulário de Venda");
 
         javax.swing.GroupLayout pnl_tituloLayout = new javax.swing.GroupLayout(pnl_titulo);
@@ -100,7 +102,7 @@ public class tela_venda extends javax.swing.JFrame {
             pnl_tituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnl_tituloLayout.createSequentialGroup()
                 .addGap(117, 117, 117)
-                .addComponent(lbl_titulo)
+                .addComponent(lbl_titulo, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnl_tituloLayout.setVerticalGroup(
@@ -111,6 +113,7 @@ public class tela_venda extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        pnl_informacoes.setBackground(new java.awt.Color(51, 51, 51));
         pnl_informacoes.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
         lbl_vendedor.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -172,10 +175,12 @@ public class tela_venda extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        pnl_acoes.setBackground(new java.awt.Color(51, 51, 51));
         pnl_acoes.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
+        btn_novo.setBackground(new java.awt.Color(51, 51, 51));
         btn_novo.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btn_novo.setForeground(new java.awt.Color(102, 102, 102));
+        btn_novo.setForeground(new java.awt.Color(255, 255, 255));
         btn_novo.setText("Novo");
         btn_novo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -183,8 +188,9 @@ public class tela_venda extends javax.swing.JFrame {
             }
         });
 
+        btn_cancelar.setBackground(new java.awt.Color(51, 51, 51));
         btn_cancelar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btn_cancelar.setForeground(new java.awt.Color(102, 102, 102));
+        btn_cancelar.setForeground(new java.awt.Color(255, 255, 255));
         btn_cancelar.setText("Cancelar");
         btn_cancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -192,8 +198,9 @@ public class tela_venda extends javax.swing.JFrame {
             }
         });
 
+        btn_anterior.setBackground(new java.awt.Color(51, 51, 51));
         btn_anterior.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btn_anterior.setForeground(new java.awt.Color(102, 102, 102));
+        btn_anterior.setForeground(new java.awt.Color(255, 255, 255));
         btn_anterior.setText("Anterior");
         btn_anterior.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -201,8 +208,9 @@ public class tela_venda extends javax.swing.JFrame {
             }
         });
 
+        btn_primeiro.setBackground(new java.awt.Color(51, 51, 51));
         btn_primeiro.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btn_primeiro.setForeground(new java.awt.Color(102, 102, 102));
+        btn_primeiro.setForeground(new java.awt.Color(255, 255, 255));
         btn_primeiro.setText("Primeiro");
         btn_primeiro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -210,8 +218,9 @@ public class tela_venda extends javax.swing.JFrame {
             }
         });
 
+        btn_proximo.setBackground(new java.awt.Color(51, 51, 51));
         btn_proximo.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btn_proximo.setForeground(new java.awt.Color(102, 102, 102));
+        btn_proximo.setForeground(new java.awt.Color(255, 255, 255));
         btn_proximo.setText("Próximo");
         btn_proximo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -219,8 +228,9 @@ public class tela_venda extends javax.swing.JFrame {
             }
         });
 
+        btn_ultimo.setBackground(new java.awt.Color(51, 51, 51));
         btn_ultimo.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btn_ultimo.setForeground(new java.awt.Color(102, 102, 102));
+        btn_ultimo.setForeground(new java.awt.Color(255, 255, 255));
         btn_ultimo.setText("Último");
         btn_ultimo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -228,8 +238,9 @@ public class tela_venda extends javax.swing.JFrame {
             }
         });
 
+        btn_localizar.setBackground(new java.awt.Color(51, 51, 51));
         btn_localizar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btn_localizar.setForeground(new java.awt.Color(102, 102, 102));
+        btn_localizar.setForeground(new java.awt.Color(255, 255, 255));
         btn_localizar.setText("Localizar");
         btn_localizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -237,8 +248,9 @@ public class tela_venda extends javax.swing.JFrame {
             }
         });
 
+        btn_alterar.setBackground(new java.awt.Color(51, 51, 51));
         btn_alterar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btn_alterar.setForeground(new java.awt.Color(102, 102, 102));
+        btn_alterar.setForeground(new java.awt.Color(255, 255, 255));
         btn_alterar.setText("Alterar");
         btn_alterar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -284,6 +296,7 @@ public class tela_venda extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
+        pnl_produto.setBackground(new java.awt.Color(51, 51, 51));
         pnl_produto.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
         lbl_quantidade_produto.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
@@ -298,14 +311,14 @@ public class tela_venda extends javax.swing.JFrame {
         lbl_itens.setForeground(new java.awt.Color(0, 102, 153));
         lbl_itens.setText("Itens da venda");
 
-        txt_quantidade_produto.setBackground(new java.awt.Color(255, 255, 204));
+        txt_quantidade_produto.setBackground(new java.awt.Color(204, 204, 204));
         txt_quantidade_produto.setForeground(new java.awt.Color(102, 102, 102));
 
         lbl_total.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         lbl_total.setForeground(new java.awt.Color(0, 102, 153));
         lbl_total.setText("Total R$");
 
-        tbl_itens.setBackground(new java.awt.Color(255, 255, 204));
+        tbl_itens.setBackground(new java.awt.Color(204, 204, 204));
         tbl_itens.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         tbl_itens.setForeground(new java.awt.Color(102, 102, 102));
         tbl_itens.setModel(new javax.swing.table.DefaultTableModel(
@@ -337,7 +350,7 @@ public class tela_venda extends javax.swing.JFrame {
         tbl_itens.getTableHeader().setReorderingAllowed(false);
         jScrollPane2.setViewportView(tbl_itens);
 
-        txt_busca_produto.setBackground(new java.awt.Color(255, 255, 204));
+        txt_busca_produto.setBackground(new java.awt.Color(204, 204, 204));
         txt_busca_produto.setForeground(new java.awt.Color(102, 102, 102));
 
         lbl_busca_produto.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
@@ -348,12 +361,18 @@ public class tela_venda extends javax.swing.JFrame {
         lbl_pagamento.setForeground(new java.awt.Color(0, 102, 153));
         lbl_pagamento.setText("Pagamento em:");
 
-        box_pagamanto.setBackground(new java.awt.Color(255, 255, 204));
+        box_pagamanto.setBackground(new java.awt.Color(204, 204, 204));
         box_pagamanto.setForeground(new java.awt.Color(102, 102, 102));
         box_pagamanto.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Dinheiro", "Cartão" }));
+        box_pagamanto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                box_pagamantoActionPerformed(evt);
+            }
+        });
 
+        btn_adicionar.setBackground(new java.awt.Color(51, 51, 51));
         btn_adicionar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btn_adicionar.setForeground(new java.awt.Color(102, 102, 102));
+        btn_adicionar.setForeground(new java.awt.Color(255, 255, 255));
         btn_adicionar.setText("Adicionar");
         btn_adicionar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -361,8 +380,9 @@ public class tela_venda extends javax.swing.JFrame {
             }
         });
 
+        btn_remover.setBackground(new java.awt.Color(51, 51, 51));
         btn_remover.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btn_remover.setForeground(new java.awt.Color(102, 102, 102));
+        btn_remover.setForeground(new java.awt.Color(255, 255, 255));
         btn_remover.setText("Remover produto");
         btn_remover.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -370,8 +390,9 @@ public class tela_venda extends javax.swing.JFrame {
             }
         });
 
+        btn_finalizar.setBackground(new java.awt.Color(51, 51, 51));
         btn_finalizar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btn_finalizar.setForeground(new java.awt.Color(102, 102, 102));
+        btn_finalizar.setForeground(new java.awt.Color(255, 255, 255));
         btn_finalizar.setText("Finalizar");
         btn_finalizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -963,6 +984,10 @@ public class tela_venda extends javax.swing.JFrame {
         }//IF
         //--------------------------------------------------------------------------------------------------
     }//GEN-LAST:event_btn_finalizarActionPerformed
+
+    private void box_pagamantoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_box_pagamantoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_box_pagamantoActionPerformed
 
     /**
      * @param args the command line arguments

@@ -74,10 +74,13 @@ public class tela_produto extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
 
-        pnl_titulo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102), 3));
+        pnl_principal.setBackground(new java.awt.Color(51, 51, 51));
+
+        pnl_titulo.setBackground(new java.awt.Color(51, 51, 51));
+        pnl_titulo.setBorder(null);
 
         lbl_titulo.setFont(new java.awt.Font("Tahoma", 3, 18)); // NOI18N
-        lbl_titulo.setForeground(new java.awt.Color(0, 102, 153));
+        lbl_titulo.setForeground(new java.awt.Color(255, 255, 255));
         lbl_titulo.setText("Formulário de Cadastro de Produto");
 
         javax.swing.GroupLayout pnl_tituloLayout = new javax.swing.GroupLayout(pnl_titulo);
@@ -97,10 +100,12 @@ public class tela_produto extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        pnl_acoes.setBackground(new java.awt.Color(51, 51, 51));
         pnl_acoes.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
+        btn_novo.setBackground(new java.awt.Color(51, 51, 51));
         btn_novo.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btn_novo.setForeground(new java.awt.Color(102, 102, 102));
+        btn_novo.setForeground(new java.awt.Color(255, 255, 255));
         btn_novo.setText("Novo");
         btn_novo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -108,8 +113,9 @@ public class tela_produto extends javax.swing.JFrame {
             }
         });
 
+        btn_cancelar.setBackground(new java.awt.Color(51, 51, 51));
         btn_cancelar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btn_cancelar.setForeground(new java.awt.Color(102, 102, 102));
+        btn_cancelar.setForeground(new java.awt.Color(255, 255, 255));
         btn_cancelar.setText("Cancelar");
         btn_cancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -117,8 +123,9 @@ public class tela_produto extends javax.swing.JFrame {
             }
         });
 
+        btn_anterior.setBackground(new java.awt.Color(51, 51, 51));
         btn_anterior.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btn_anterior.setForeground(new java.awt.Color(102, 102, 102));
+        btn_anterior.setForeground(new java.awt.Color(255, 255, 255));
         btn_anterior.setText("Anterior");
         btn_anterior.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -126,8 +133,9 @@ public class tela_produto extends javax.swing.JFrame {
             }
         });
 
+        btn_primeiro.setBackground(new java.awt.Color(51, 51, 51));
         btn_primeiro.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btn_primeiro.setForeground(new java.awt.Color(102, 102, 102));
+        btn_primeiro.setForeground(new java.awt.Color(255, 255, 255));
         btn_primeiro.setText("Primeiro");
         btn_primeiro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -135,8 +143,9 @@ public class tela_produto extends javax.swing.JFrame {
             }
         });
 
+        btn_proximo.setBackground(new java.awt.Color(51, 51, 51));
         btn_proximo.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btn_proximo.setForeground(new java.awt.Color(102, 102, 102));
+        btn_proximo.setForeground(new java.awt.Color(255, 255, 255));
         btn_proximo.setText("Próximo");
         btn_proximo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -144,8 +153,9 @@ public class tela_produto extends javax.swing.JFrame {
             }
         });
 
+        btn_ultimo.setBackground(new java.awt.Color(51, 51, 51));
         btn_ultimo.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btn_ultimo.setForeground(new java.awt.Color(102, 102, 102));
+        btn_ultimo.setForeground(new java.awt.Color(255, 255, 255));
         btn_ultimo.setText("Último");
         btn_ultimo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -153,8 +163,9 @@ public class tela_produto extends javax.swing.JFrame {
             }
         });
 
+        btn_localizar.setBackground(new java.awt.Color(51, 51, 51));
         btn_localizar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btn_localizar.setForeground(new java.awt.Color(102, 102, 102));
+        btn_localizar.setForeground(new java.awt.Color(255, 255, 255));
         btn_localizar.setText("Localizar");
         btn_localizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -162,8 +173,9 @@ public class tela_produto extends javax.swing.JFrame {
             }
         });
 
+        btn_alterar.setBackground(new java.awt.Color(51, 51, 51));
         btn_alterar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btn_alterar.setForeground(new java.awt.Color(102, 102, 102));
+        btn_alterar.setForeground(new java.awt.Color(255, 255, 255));
         btn_alterar.setText("Alterar");
         btn_alterar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -213,6 +225,7 @@ public class tela_produto extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
+        jPanel1.setBackground(new java.awt.Color(51, 51, 51));
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
         lbl_codigo.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -227,7 +240,7 @@ public class tela_produto extends javax.swing.JFrame {
         lbl_nome.setForeground(new java.awt.Color(0, 102, 153));
         lbl_nome.setText("Nome*");
 
-        txt_nome.setBackground(new java.awt.Color(255, 255, 204));
+        txt_nome.setBackground(new java.awt.Color(204, 204, 204));
         txt_nome.setForeground(new java.awt.Color(102, 102, 102));
 
         rd_ativo.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
@@ -238,21 +251,21 @@ public class tela_produto extends javax.swing.JFrame {
         lbl_valFab.setForeground(new java.awt.Color(0, 102, 153));
         lbl_valFab.setText("Valor de fabrica (R$)*");
 
-        txt_valFab.setBackground(new java.awt.Color(255, 255, 204));
+        txt_valFab.setBackground(new java.awt.Color(204, 204, 204));
         txt_valFab.setForeground(new java.awt.Color(102, 102, 102));
 
         lbl_valVen.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         lbl_valVen.setForeground(new java.awt.Color(0, 102, 153));
         lbl_valVen.setText("Valor de venda (R$)*");
 
-        txt_valVen.setBackground(new java.awt.Color(255, 255, 204));
+        txt_valVen.setBackground(new java.awt.Color(204, 204, 204));
         txt_valVen.setForeground(new java.awt.Color(102, 102, 102));
 
         lbl_tamanho.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         lbl_tamanho.setForeground(new java.awt.Color(0, 102, 153));
         lbl_tamanho.setText("Tamanho*");
 
-        box_tamanho.setBackground(new java.awt.Color(255, 255, 204));
+        box_tamanho.setBackground(new java.awt.Color(204, 204, 204));
         box_tamanho.setForeground(new java.awt.Color(102, 102, 102));
         box_tamanho.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "P", "M", "G" }));
         box_tamanho.addActionListener(new java.awt.event.ActionListener() {
@@ -265,7 +278,7 @@ public class tela_produto extends javax.swing.JFrame {
         lbl_genero.setForeground(new java.awt.Color(0, 102, 153));
         lbl_genero.setText("Genero*");
 
-        box_genero.setBackground(new java.awt.Color(255, 255, 204));
+        box_genero.setBackground(new java.awt.Color(204, 204, 204));
         box_genero.setForeground(new java.awt.Color(102, 102, 102));
         box_genero.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Masculino", "Feminino" }));
 
@@ -273,25 +286,26 @@ public class tela_produto extends javax.swing.JFrame {
         lbl_cor.setForeground(new java.awt.Color(0, 102, 153));
         lbl_cor.setText("Cor");
 
-        txt_cor.setBackground(new java.awt.Color(255, 255, 204));
+        txt_cor.setBackground(new java.awt.Color(204, 204, 204));
         txt_cor.setForeground(new java.awt.Color(102, 102, 102));
 
         lbl_local.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         lbl_local.setForeground(new java.awt.Color(0, 102, 153));
         lbl_local.setText("Localização");
 
-        txt_local.setBackground(new java.awt.Color(255, 255, 204));
+        txt_local.setBackground(new java.awt.Color(204, 204, 204));
         txt_local.setForeground(new java.awt.Color(102, 102, 102));
 
         lbl_categoria.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         lbl_categoria.setForeground(new java.awt.Color(0, 102, 153));
         lbl_categoria.setText("Categoria*");
 
-        box_categoria.setBackground(new java.awt.Color(255, 255, 204));
+        box_categoria.setBackground(new java.awt.Color(204, 204, 204));
         box_categoria.setForeground(new java.awt.Color(102, 102, 102));
 
+        btn_salvar.setBackground(new java.awt.Color(51, 51, 51));
         btn_salvar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btn_salvar.setForeground(new java.awt.Color(102, 102, 102));
+        btn_salvar.setForeground(new java.awt.Color(255, 255, 255));
         btn_salvar.setText("Salvar");
         btn_salvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -310,7 +324,6 @@ public class tela_produto extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lbl_msg, javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lbl_nome, javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                         .addComponent(lbl_cv)
@@ -318,12 +331,14 @@ public class tela_produto extends javax.swing.JFrame {
                         .addComponent(lbl_codigo))
                     .addComponent(lbl_valVen, javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lbl_categoria, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(box_categoria, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txt_nome, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addComponent(txt_valVen, javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(txt_valFab, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(lbl_valFab, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(lbl_valFab, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(lbl_msg, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(box_categoria, javax.swing.GroupLayout.Alignment.LEADING, 0, 150, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)

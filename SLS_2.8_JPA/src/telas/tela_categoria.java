@@ -55,14 +55,17 @@ public class tela_categoria extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
 
+        pnl_principal.setBackground(new java.awt.Color(51, 51, 51));
         pnl_principal.setPreferredSize(new java.awt.Dimension(990, 460));
         pnl_principal.setRequestFocusEnabled(false);
 
-        pnl_titulo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102), 3));
+        pnl_titulo.setBackground(new java.awt.Color(51, 51, 51));
+        pnl_titulo.setBorder(null);
+        pnl_titulo.setForeground(new java.awt.Color(255, 255, 255));
         pnl_titulo.setPreferredSize(new java.awt.Dimension(457, 50));
 
         lbl_titulo.setFont(new java.awt.Font("Tahoma", 3, 18)); // NOI18N
-        lbl_titulo.setForeground(new java.awt.Color(0, 102, 153));
+        lbl_titulo.setForeground(new java.awt.Color(255, 255, 255));
         lbl_titulo.setText("Formulário de Cadastro de Categoria");
 
         javax.swing.GroupLayout pnl_tituloLayout = new javax.swing.GroupLayout(pnl_titulo);
@@ -71,7 +74,7 @@ public class tela_categoria extends javax.swing.JFrame {
             pnl_tituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnl_tituloLayout.createSequentialGroup()
                 .addGap(47, 47, 47)
-                .addComponent(lbl_titulo)
+                .addComponent(lbl_titulo, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnl_tituloLayout.setVerticalGroup(
@@ -79,9 +82,10 @@ public class tela_categoria extends javax.swing.JFrame {
             .addGroup(pnl_tituloLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lbl_titulo)
-                .addContainerGap(16, Short.MAX_VALUE))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
 
+        pnl_categoria.setBackground(new java.awt.Color(51, 51, 51));
         pnl_categoria.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
         lbl_cv.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
@@ -96,7 +100,7 @@ public class tela_categoria extends javax.swing.JFrame {
         lbl_nome.setForeground(new java.awt.Color(0, 102, 153));
         lbl_nome.setText("Nome *");
 
-        txt_nome.setBackground(new java.awt.Color(255, 255, 204));
+        txt_nome.setBackground(new java.awt.Color(204, 204, 204));
         txt_nome.setForeground(new java.awt.Color(102, 102, 102));
 
         rd_ativo.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
@@ -108,8 +112,9 @@ public class tela_categoria extends javax.swing.JFrame {
         lbl_msg.setForeground(new java.awt.Color(255, 51, 51));
         lbl_msg.setText("Mensagem de aviso");
 
+        btn_salvar.setBackground(new java.awt.Color(51, 51, 51));
         btn_salvar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btn_salvar.setForeground(new java.awt.Color(102, 102, 102));
+        btn_salvar.setForeground(new java.awt.Color(255, 255, 255));
         btn_salvar.setText("Salvar");
         btn_salvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -125,6 +130,9 @@ public class tela_categoria extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(pnl_categoriaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnl_categoriaLayout.createSequentialGroup()
+                        .addComponent(lbl_msg, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(pnl_categoriaLayout.createSequentialGroup()
                         .addGroup(pnl_categoriaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(pnl_categoriaLayout.createSequentialGroup()
                                 .addGroup(pnl_categoriaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -132,7 +140,7 @@ public class tela_categoria extends javax.swing.JFrame {
                                         .addComponent(lbl_cv)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(lbl_codigo)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
                                         .addComponent(rd_ativo))
                                     .addGroup(pnl_categoriaLayout.createSequentialGroup()
                                         .addComponent(lbl_nome)
@@ -141,10 +149,7 @@ public class tela_categoria extends javax.swing.JFrame {
                             .addGroup(pnl_categoriaLayout.createSequentialGroup()
                                 .addComponent(txt_nome)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
-                        .addComponent(btn_salvar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(pnl_categoriaLayout.createSequentialGroup()
-                        .addComponent(lbl_msg)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addComponent(btn_salvar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         pnl_categoriaLayout.setVerticalGroup(
@@ -166,10 +171,12 @@ public class tela_categoria extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        pnl_acoes.setBackground(new java.awt.Color(51, 51, 51));
         pnl_acoes.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
+        btn_novo.setBackground(new java.awt.Color(51, 51, 51));
         btn_novo.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btn_novo.setForeground(new java.awt.Color(102, 102, 102));
+        btn_novo.setForeground(new java.awt.Color(255, 255, 255));
         btn_novo.setText("Novo");
         btn_novo.setToolTipText("");
         btn_novo.addActionListener(new java.awt.event.ActionListener() {
@@ -178,8 +185,9 @@ public class tela_categoria extends javax.swing.JFrame {
             }
         });
 
+        btn_cancelar.setBackground(new java.awt.Color(51, 51, 51));
         btn_cancelar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btn_cancelar.setForeground(new java.awt.Color(102, 102, 102));
+        btn_cancelar.setForeground(new java.awt.Color(255, 255, 255));
         btn_cancelar.setText("Cancelar");
         btn_cancelar.setToolTipText("");
         btn_cancelar.addActionListener(new java.awt.event.ActionListener() {
@@ -188,8 +196,9 @@ public class tela_categoria extends javax.swing.JFrame {
             }
         });
 
+        btn_anterior.setBackground(new java.awt.Color(51, 51, 51));
         btn_anterior.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btn_anterior.setForeground(new java.awt.Color(102, 102, 102));
+        btn_anterior.setForeground(new java.awt.Color(255, 255, 255));
         btn_anterior.setText("Anterior");
         btn_anterior.setToolTipText("");
         btn_anterior.addActionListener(new java.awt.event.ActionListener() {
@@ -198,8 +207,9 @@ public class tela_categoria extends javax.swing.JFrame {
             }
         });
 
+        btn_primeiro.setBackground(new java.awt.Color(51, 51, 51));
         btn_primeiro.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btn_primeiro.setForeground(new java.awt.Color(102, 102, 102));
+        btn_primeiro.setForeground(new java.awt.Color(255, 255, 255));
         btn_primeiro.setText("Primeiro");
         btn_primeiro.setToolTipText("");
         btn_primeiro.addActionListener(new java.awt.event.ActionListener() {
@@ -208,8 +218,9 @@ public class tela_categoria extends javax.swing.JFrame {
             }
         });
 
+        btn_proximo.setBackground(new java.awt.Color(51, 51, 51));
         btn_proximo.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btn_proximo.setForeground(new java.awt.Color(102, 102, 102));
+        btn_proximo.setForeground(new java.awt.Color(255, 255, 255));
         btn_proximo.setText("Próximo");
         btn_proximo.setToolTipText("");
         btn_proximo.addActionListener(new java.awt.event.ActionListener() {
@@ -218,8 +229,9 @@ public class tela_categoria extends javax.swing.JFrame {
             }
         });
 
+        btn_ultimo.setBackground(new java.awt.Color(51, 51, 51));
         btn_ultimo.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btn_ultimo.setForeground(new java.awt.Color(102, 102, 102));
+        btn_ultimo.setForeground(new java.awt.Color(255, 255, 255));
         btn_ultimo.setText("Último");
         btn_ultimo.setToolTipText("");
         btn_ultimo.setPreferredSize(new java.awt.Dimension(69, 30));
@@ -229,8 +241,9 @@ public class tela_categoria extends javax.swing.JFrame {
             }
         });
 
+        btn_localizar.setBackground(new java.awt.Color(51, 51, 51));
         btn_localizar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btn_localizar.setForeground(new java.awt.Color(102, 102, 102));
+        btn_localizar.setForeground(new java.awt.Color(255, 255, 255));
         btn_localizar.setText("Localizar");
         btn_localizar.setToolTipText("");
         btn_localizar.addActionListener(new java.awt.event.ActionListener() {
@@ -239,8 +252,9 @@ public class tela_categoria extends javax.swing.JFrame {
             }
         });
 
+        btn_alterar.setBackground(new java.awt.Color(51, 51, 51));
         btn_alterar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btn_alterar.setForeground(new java.awt.Color(102, 102, 102));
+        btn_alterar.setForeground(new java.awt.Color(255, 255, 255));
         btn_alterar.setText("Alterar");
         btn_alterar.setToolTipText("");
         btn_alterar.setPreferredSize(new java.awt.Dimension(120, 30));
