@@ -49,7 +49,6 @@ public class GUI_principal extends javax.swing.JFrame {
         btn_pro = new javax.swing.JButton();
         btn_usu = new javax.swing.JButton();
         jSeparator2 = new javax.swing.JToolBar.Separator();
-        btn_ven3 = new javax.swing.JButton();
         btn_ven2 = new javax.swing.JButton();
         btn_tro = new javax.swing.JButton();
         painel = new javax.swing.JPanel();
@@ -64,12 +63,13 @@ public class GUI_principal extends javax.swing.JFrame {
         mnu_menu = new javax.swing.JMenuBar();
         mnu_cad = new javax.swing.JMenu();
         mnu_cadPro = new javax.swing.JMenuItem();
+        mnu_manCat = new javax.swing.JMenuItem();
         mnu_man = new javax.swing.JMenu();
         mnu_manUsu = new javax.swing.JMenuItem();
-        mnu_manCat = new javax.swing.JMenuItem();
         mnu_manEst = new javax.swing.JMenuItem();
         mnu_mov = new javax.swing.JMenu();
         mnu_movVen = new javax.swing.JMenuItem();
+        mnu_movTro = new javax.swing.JMenuItem();
         mnu_rel = new javax.swing.JMenu();
         mnu_rel_res = new javax.swing.JMenuItem();
         mnu_encer = new javax.swing.JMenu();
@@ -89,7 +89,7 @@ public class GUI_principal extends javax.swing.JFrame {
 
         btn_ven.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         btn_ven.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/venda64.png"))); // NOI18N
-        btn_ven.setToolTipText("Realizar uma nova VENDA");
+        btn_ven.setToolTipText("Realizar uma nova VENDA ou alterar uma existente");
         btn_ven.setFocusable(false);
         btn_ven.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btn_ven.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -103,7 +103,7 @@ public class GUI_principal extends javax.swing.JFrame {
 
         btn_pro.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         btn_pro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/novo64.png"))); // NOI18N
-        btn_pro.setToolTipText("Cadastrar um novo PRODUTO");
+        btn_pro.setToolTipText("Cadastro e manutenção de PRODUTO");
         btn_pro.setFocusable(false);
         btn_pro.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btn_pro.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -116,7 +116,7 @@ public class GUI_principal extends javax.swing.JFrame {
 
         btn_usu.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         btn_usu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/pessoa64.png"))); // NOI18N
-        btn_usu.setToolTipText("Cadastrar um novo USUÁRIO");
+        btn_usu.setToolTipText("Cadastro e manutenção de USUÁRIO");
         btn_usu.setFocusable(false);
         btn_usu.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btn_usu.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -127,19 +127,6 @@ public class GUI_principal extends javax.swing.JFrame {
         });
         ferramentas.add(btn_usu);
         ferramentas.add(jSeparator2);
-
-        btn_ven3.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        btn_ven3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/percent64.png"))); // NOI18N
-        btn_ven3.setToolTipText("");
-        btn_ven3.setFocusable(false);
-        btn_ven3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btn_ven3.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        btn_ven3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_ven3ActionPerformed(evt);
-            }
-        });
-        ferramentas.add(btn_ven3);
 
         btn_ven2.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         btn_ven2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/info64.png"))); // NOI18N
@@ -259,6 +246,17 @@ public class GUI_principal extends javax.swing.JFrame {
         });
         mnu_cad.add(mnu_cadPro);
 
+        mnu_manCat.setBackground(new java.awt.Color(102, 102, 102));
+        mnu_manCat.setFont(new java.awt.Font("Eras Light ITC", 1, 14)); // NOI18N
+        mnu_manCat.setForeground(new java.awt.Color(51, 51, 51));
+        mnu_manCat.setText("Categoria");
+        mnu_manCat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnu_manCatActionPerformed(evt);
+            }
+        });
+        mnu_cad.add(mnu_manCat);
+
         mnu_menu.add(mnu_cad);
 
         mnu_man.setBackground(new java.awt.Color(102, 102, 102));
@@ -281,17 +279,6 @@ public class GUI_principal extends javax.swing.JFrame {
             }
         });
         mnu_man.add(mnu_manUsu);
-
-        mnu_manCat.setBackground(new java.awt.Color(102, 102, 102));
-        mnu_manCat.setFont(new java.awt.Font("Eras Light ITC", 1, 14)); // NOI18N
-        mnu_manCat.setForeground(new java.awt.Color(51, 51, 51));
-        mnu_manCat.setText("Categoria");
-        mnu_manCat.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mnu_manCatActionPerformed(evt);
-            }
-        });
-        mnu_man.add(mnu_manCat);
 
         mnu_manEst.setFont(new java.awt.Font("Eras Light ITC", 1, 14)); // NOI18N
         mnu_manEst.setForeground(new java.awt.Color(51, 51, 51));
@@ -320,6 +307,17 @@ public class GUI_principal extends javax.swing.JFrame {
             }
         });
         mnu_mov.add(mnu_movVen);
+
+        mnu_movTro.setBackground(new java.awt.Color(102, 102, 102));
+        mnu_movTro.setFont(new java.awt.Font("Eras Light ITC", 1, 14)); // NOI18N
+        mnu_movTro.setForeground(new java.awt.Color(51, 51, 51));
+        mnu_movTro.setText("Trocar usuário");
+        mnu_movTro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnu_movTroActionPerformed(evt);
+            }
+        });
+        mnu_mov.add(mnu_movTro);
 
         mnu_menu.add(mnu_mov);
 
@@ -398,10 +396,6 @@ public class GUI_principal extends javax.swing.JFrame {
         new tela_info_empresa().setVisible(true);
     }//GEN-LAST:event_btn_ven2ActionPerformed
 
-    private void btn_ven3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ven3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btn_ven3ActionPerformed
-
     private void btn_proActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_proActionPerformed
         // Novo cadastro de produto
         new tela_produto().setVisible(true);
@@ -457,6 +451,11 @@ public class GUI_principal extends javax.swing.JFrame {
 		
     }//GEN-LAST:event_mnu_rel_resActionPerformed
 
+    private void mnu_movTroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnu_movTroActionPerformed
+         new GUI_login().setVisible(true);
+		 this.dispose();
+    }//GEN-LAST:event_mnu_movTroActionPerformed
+
 //=========================================================================================
 //	MÉTODO MAIN
 //=========================================================================================
@@ -505,7 +504,6 @@ public class GUI_principal extends javax.swing.JFrame {
     private javax.swing.JButton btn_usu;
     private javax.swing.JButton btn_ven;
     private javax.swing.JButton btn_ven2;
-    private javax.swing.JButton btn_ven3;
     private javax.swing.JToolBar ferramentas;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
@@ -525,6 +523,7 @@ public class GUI_principal extends javax.swing.JFrame {
     private javax.swing.JMenuItem mnu_manUsu;
     private javax.swing.JMenuBar mnu_menu;
     private javax.swing.JMenu mnu_mov;
+    private javax.swing.JMenuItem mnu_movTro;
     private javax.swing.JMenuItem mnu_movVen;
     private javax.swing.JMenu mnu_rel;
     private javax.swing.JMenuItem mnu_rel_res;
