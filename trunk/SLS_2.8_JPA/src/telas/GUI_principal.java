@@ -53,7 +53,6 @@ public class GUI_principal extends javax.swing.JFrame {
         btn_ven2 = new javax.swing.JButton();
         btn_tro = new javax.swing.JButton();
         painel = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         lbl_codAtiv = new javax.swing.JLabel();
         lbl_usuAtiv = new javax.swing.JLabel();
@@ -79,9 +78,9 @@ public class GUI_principal extends javax.swing.JFrame {
         setBackground(new java.awt.Color(0, 0, 0));
         setMaximumSize(new java.awt.Dimension(900, 600));
         setMinimumSize(new java.awt.Dimension(900, 100));
-        setPreferredSize(new java.awt.Dimension(900, 600));
         setResizable(false);
 
+        ferramentas.setBackground(new java.awt.Color(51, 51, 51));
         ferramentas.setBorder(null);
         ferramentas.setFloatable(false);
         ferramentas.setPreferredSize(new java.awt.Dimension(900, 72));
@@ -166,6 +165,7 @@ public class GUI_principal extends javax.swing.JFrame {
         });
         ferramentas.add(btn_ven2);
 
+        btn_tro.setBackground(new java.awt.Color(51, 51, 51));
         btn_tro.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         btn_tro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/info64.png"))); // NOI18N
         btn_tro.setToolTipText("Informações do sistema");
@@ -179,48 +179,40 @@ public class GUI_principal extends javax.swing.JFrame {
         });
         ferramentas.add(btn_tro);
 
-        painel.setBorder(null);
+        painel.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         painel.setPreferredSize(new java.awt.Dimension(900, 437));
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/imagens-sls-light-bg.png"))); // NOI18N
 
         javax.swing.GroupLayout painelLayout = new javax.swing.GroupLayout(painel);
         painel.setLayout(painelLayout);
         painelLayout.setHorizontalGroup(
             painelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(painelLayout.createSequentialGroup()
-                .addComponent(jLabel1)
-                .addGap(0, 0, 0))
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         painelLayout.setVerticalGroup(
             painelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(painelLayout.createSequentialGroup()
-                .addComponent(jLabel1)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addGap(0, 417, Short.MAX_VALUE)
         );
 
-        jPanel1.setBackground(new java.awt.Color(51, 51, 51));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jPanel1.setPreferredSize(new java.awt.Dimension(900, 25));
 
         lbl_codAtiv.setFont(new java.awt.Font("Eras Light ITC", 1, 15)); // NOI18N
-        lbl_codAtiv.setForeground(new java.awt.Color(153, 204, 255));
         lbl_codAtiv.setText("codigo");
         jPanel1.add(lbl_codAtiv);
 
         lbl_usuAtiv.setFont(new java.awt.Font("Eras Light ITC", 1, 15)); // NOI18N
-        lbl_usuAtiv.setForeground(new java.awt.Color(255, 255, 153));
+        lbl_usuAtiv.setForeground(new java.awt.Color(0, 0, 153));
         lbl_usuAtiv.setText("usuário");
         jPanel1.add(lbl_usuAtiv);
         jPanel1.add(separador1);
 
         lbl_carAtiv.setFont(new java.awt.Font("Eras Light ITC", 1, 15)); // NOI18N
-        lbl_carAtiv.setForeground(new java.awt.Color(153, 204, 255));
         lbl_carAtiv.setText("funcao");
         jPanel1.add(lbl_carAtiv);
 
         lbl_data.setBackground(new java.awt.Color(200, 200, 180));
         lbl_data.setFont(new java.awt.Font("Eras Light ITC", 1, 15)); // NOI18N
-        lbl_data.setForeground(new java.awt.Color(255, 255, 153));
+        lbl_data.setForeground(new java.awt.Color(0, 0, 153));
         lbl_data.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbl_data.setText("dia mês ano");
         lbl_data.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -232,7 +224,6 @@ public class GUI_principal extends javax.swing.JFrame {
 
         lbl_hora.setBackground(new java.awt.Color(200, 200, 180));
         lbl_hora.setFont(new java.awt.Font("Eras Light ITC", 1, 15)); // NOI18N
-        lbl_hora.setForeground(new java.awt.Color(153, 204, 255));
         lbl_hora.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbl_hora.setText("xx:xx:xx");
         jPanel1.add(lbl_hora);
@@ -339,11 +330,14 @@ public class GUI_principal extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(ferramentas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(painel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(0, 0, 0))
+                .addComponent(ferramentas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(painel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 888, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -353,8 +347,8 @@ public class GUI_principal extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(painel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
@@ -500,7 +494,6 @@ public class GUI_principal extends javax.swing.JFrame {
     private javax.swing.JButton btn_ven2;
     private javax.swing.JButton btn_ven3;
     private javax.swing.JToolBar ferramentas;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JToolBar.Separator jSeparator1;
     private javax.swing.JToolBar.Separator jSeparator2;

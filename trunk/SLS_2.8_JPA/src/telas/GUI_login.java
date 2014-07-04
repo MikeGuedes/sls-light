@@ -47,6 +47,7 @@ public class GUI_login extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("LOGIN");
         setUndecorated(true);
+        setPreferredSize(new java.awt.Dimension(440, 300));
         setResizable(false);
 
         pnl_principal.setPreferredSize(new java.awt.Dimension(400, 220));
@@ -55,28 +56,29 @@ public class GUI_login extends javax.swing.JFrame {
 
         lbl_msg.setFont(new java.awt.Font("Impact", 0, 24)); // NOI18N
         lbl_msg.setForeground(new java.awt.Color(255, 255, 153));
-        pnl_principal.add(lbl_msg, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 210, 240, -1));
+        pnl_principal.add(lbl_msg, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 250, 240, 30));
 
         lbl_senha.setFont(new java.awt.Font("Impact", 0, 24)); // NOI18N
         lbl_senha.setForeground(new java.awt.Color(255, 255, 255));
         lbl_senha.setText("Senha");
-        pnl_principal.add(lbl_senha, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 70, -1, -1));
+        pnl_principal.add(lbl_senha, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 120, -1, -1));
 
         lbl_usuario.setFont(new java.awt.Font("Impact", 0, 24)); // NOI18N
         lbl_usuario.setForeground(new java.awt.Color(255, 255, 255));
         lbl_usuario.setText("Código");
-        pnl_principal.add(lbl_usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 10, -1, -1));
+        pnl_principal.add(lbl_usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 60, -1, -1));
 
-        txt_cod.setBackground(new java.awt.Color(255, 255, 153));
+        txt_cod.setBackground(new java.awt.Color(204, 204, 204));
         txt_cod.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        pnl_principal.add(txt_cod, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 40, 97, -1));
+        pnl_principal.add(txt_cod, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 90, 97, -1));
 
-        txt_sen.setBackground(new java.awt.Color(255, 255, 153));
+        txt_sen.setBackground(new java.awt.Color(204, 204, 204));
         txt_sen.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        pnl_principal.add(txt_sen, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 100, 97, -1));
+        pnl_principal.add(txt_sen, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 150, 97, -1));
 
-        btn_entrar.setBackground(new java.awt.Color(255, 255, 153));
+        btn_entrar.setBackground(new java.awt.Color(0, 0, 0));
         btn_entrar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btn_entrar.setForeground(new java.awt.Color(204, 204, 204));
         btn_entrar.setText("Entrar");
         btn_entrar.setFocusable(false);
         btn_entrar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -86,33 +88,36 @@ public class GUI_login extends javax.swing.JFrame {
                 btn_entrarActionPerformed(evt);
             }
         });
-        pnl_principal.add(btn_entrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 130, 97, -1));
+        pnl_principal.add(btn_entrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 180, 97, -1));
 
-        btn_sair.setBackground(new java.awt.Color(255, 255, 153));
+        btn_sair.setBackground(new java.awt.Color(0, 0, 0));
         btn_sair.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btn_sair.setForeground(new java.awt.Color(204, 204, 204));
         btn_sair.setText("Sair");
         btn_sair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_sairActionPerformed(evt);
             }
         });
-        pnl_principal.add(btn_sair, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 160, 97, -1));
+        pnl_principal.add(btn_sair, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 210, 97, -1));
 
-        lbl_bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/SLS login_1.png"))); // NOI18N
-        pnl_principal.add(lbl_bg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 500, 300));
+        lbl_bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/imagens-sls-light-login.png"))); // NOI18N
+        pnl_principal.add(lbl_bg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 440, 300));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnl_principal, javax.swing.GroupLayout.DEFAULT_SIZE, 500, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(pnl_principal, javax.swing.GroupLayout.PREFERRED_SIZE, 439, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(pnl_principal, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
         );
 
-        setSize(new java.awt.Dimension(500, 300));
+        setSize(new java.awt.Dimension(439, 300));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
