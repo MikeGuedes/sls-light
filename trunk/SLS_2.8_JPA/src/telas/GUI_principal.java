@@ -49,7 +49,6 @@ public class GUI_principal extends javax.swing.JFrame {
         btn_pro = new javax.swing.JButton();
         btn_usu = new javax.swing.JButton();
         jSeparator2 = new javax.swing.JToolBar.Separator();
-        btn_ven1 = new javax.swing.JButton();
         btn_ven3 = new javax.swing.JButton();
         btn_ven2 = new javax.swing.JButton();
         btn_tro = new javax.swing.JButton();
@@ -130,19 +129,6 @@ public class GUI_principal extends javax.swing.JFrame {
         ferramentas.add(btn_usu);
         ferramentas.add(jSeparator2);
 
-        btn_ven1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        btn_ven1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/settings64.png"))); // NOI18N
-        btn_ven1.setToolTipText("Configuração");
-        btn_ven1.setFocusable(false);
-        btn_ven1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btn_ven1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        btn_ven1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_ven1ActionPerformed(evt);
-            }
-        });
-        ferramentas.add(btn_ven1);
-
         btn_ven3.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         btn_ven3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/percent64.png"))); // NOI18N
         btn_ven3.setToolTipText("");
@@ -171,7 +157,7 @@ public class GUI_principal extends javax.swing.JFrame {
 
         btn_tro.setBackground(new java.awt.Color(51, 51, 51));
         btn_tro.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        btn_tro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/info64.png"))); // NOI18N
+        btn_tro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/imagens-sls-light-info-sistema.png"))); // NOI18N
         btn_tro.setToolTipText("Informações do sistema");
         btn_tro.setFocusable(false);
         btn_tro.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -409,10 +395,6 @@ public class GUI_principal extends javax.swing.JFrame {
         
     }//GEN-LAST:event_mnu_cadProActionPerformed
 
-    private void btn_ven1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ven1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btn_ven1ActionPerformed
-
     private void btn_ven2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ven2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btn_ven2ActionPerformed
@@ -524,7 +506,6 @@ public class GUI_principal extends javax.swing.JFrame {
     private javax.swing.JButton btn_tro;
     private javax.swing.JButton btn_usu;
     private javax.swing.JButton btn_ven;
-    private javax.swing.JButton btn_ven1;
     private javax.swing.JButton btn_ven2;
     private javax.swing.JButton btn_ven3;
     private javax.swing.JToolBar ferramentas;

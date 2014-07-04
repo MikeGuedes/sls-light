@@ -58,26 +58,26 @@ public class GUI_login extends javax.swing.JFrame {
         lbl_msg.setForeground(new java.awt.Color(255, 255, 153));
         pnl_principal.add(lbl_msg, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 250, 240, 30));
 
-        lbl_senha.setFont(new java.awt.Font("Impact", 0, 24)); // NOI18N
+        lbl_senha.setFont(new java.awt.Font("Eras Light ITC", 1, 24)); // NOI18N
         lbl_senha.setForeground(new java.awt.Color(255, 255, 255));
         lbl_senha.setText("Senha");
         pnl_principal.add(lbl_senha, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 120, -1, -1));
 
-        lbl_usuario.setFont(new java.awt.Font("Impact", 0, 24)); // NOI18N
+        lbl_usuario.setFont(new java.awt.Font("Eras Light ITC", 1, 24)); // NOI18N
         lbl_usuario.setForeground(new java.awt.Color(255, 255, 255));
         lbl_usuario.setText("Código");
         pnl_principal.add(lbl_usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 60, -1, -1));
 
         txt_cod.setBackground(new java.awt.Color(204, 204, 204));
-        txt_cod.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        txt_cod.setFont(new java.awt.Font("Eras Light ITC", 1, 14)); // NOI18N
         pnl_principal.add(txt_cod, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 90, 97, -1));
 
         txt_sen.setBackground(new java.awt.Color(204, 204, 204));
-        txt_sen.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        txt_sen.setFont(new java.awt.Font("Eras Light ITC", 1, 14)); // NOI18N
         pnl_principal.add(txt_sen, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 150, 97, -1));
 
         btn_entrar.setBackground(new java.awt.Color(0, 0, 0));
-        btn_entrar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btn_entrar.setFont(new java.awt.Font("Eras Light ITC", 1, 14)); // NOI18N
         btn_entrar.setForeground(new java.awt.Color(204, 204, 204));
         btn_entrar.setText("Entrar");
         btn_entrar.setFocusable(false);
@@ -91,7 +91,7 @@ public class GUI_login extends javax.swing.JFrame {
         pnl_principal.add(btn_entrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 180, 97, -1));
 
         btn_sair.setBackground(new java.awt.Color(0, 0, 0));
-        btn_sair.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btn_sair.setFont(new java.awt.Font("Eras Light ITC", 1, 14)); // NOI18N
         btn_sair.setForeground(new java.awt.Color(204, 204, 204));
         btn_sair.setText("Sair");
         btn_sair.addActionListener(new java.awt.event.ActionListener() {
