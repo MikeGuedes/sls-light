@@ -203,9 +203,6 @@
     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
       <Color blue="0" green="0" red="0" type="rgb"/>
     </Property>
-    <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-      <Dimension value="[900, 600]"/>
-    </Property>
     <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
       <Dimension value="[900, 100]"/>
     </Property>
@@ -393,7 +390,7 @@
                   <Font name="Arial" size="12" style="1"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/imagens/imagens-sls-light-info-sistema.png"/>
+                  <Image iconType="3" name="/imagens/imagens-sls-light-icone-info-sistema.png"/>
                 </Property>
                 <Property name="toolTipText" type="java.lang.String" value="Informa&#xe7;&#xf5;es do sistema"/>
                 <Property name="focusable" type="boolean" value="false"/>
