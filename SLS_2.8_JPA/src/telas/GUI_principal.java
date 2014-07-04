@@ -77,7 +77,6 @@ public class GUI_principal extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("SLS 1.0");
         setBackground(new java.awt.Color(0, 0, 0));
-        setMaximumSize(new java.awt.Dimension(900, 600));
         setMinimumSize(new java.awt.Dimension(900, 100));
         setResizable(false);
 
@@ -157,7 +156,7 @@ public class GUI_principal extends javax.swing.JFrame {
 
         btn_tro.setBackground(new java.awt.Color(51, 51, 51));
         btn_tro.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        btn_tro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/imagens-sls-light-info-sistema.png"))); // NOI18N
+        btn_tro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/imagens-sls-light-icone-info-sistema.png"))); // NOI18N
         btn_tro.setToolTipText("Informações do sistema");
         btn_tro.setFocusable(false);
         btn_tro.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -396,7 +395,7 @@ public class GUI_principal extends javax.swing.JFrame {
     }//GEN-LAST:event_mnu_cadProActionPerformed
 
     private void btn_ven2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ven2ActionPerformed
-        // TODO add your handling code here:
+        new tela_info_empresa().setVisible(true);
     }//GEN-LAST:event_btn_ven2ActionPerformed
 
     private void btn_ven3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ven3ActionPerformed
@@ -423,9 +422,8 @@ public class GUI_principal extends javax.swing.JFrame {
     }//GEN-LAST:event_lbl_dataMouseClicked
 
          private void btn_troActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_troActionPerformed
-                  //Fazer login com outro usuario
-                  this.dispose();
-                  new GUI_login().setVisible(true);
+
+                  new tela_info_sistema().setVisible(true);
          }//GEN-LAST:event_btn_troActionPerformed
 
          private void mnu_manCatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnu_manCatActionPerformed
