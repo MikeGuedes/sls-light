@@ -42,6 +42,7 @@ public class GUI_principal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        pnl_total = new javax.swing.JPanel();
         ferramentas = new javax.swing.JToolBar();
         btn_ven = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JToolBar.Separator();
@@ -53,6 +54,7 @@ public class GUI_principal extends javax.swing.JFrame {
         btn_ven2 = new javax.swing.JButton();
         btn_tro = new javax.swing.JButton();
         painel = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         lbl_codAtiv = new javax.swing.JLabel();
         lbl_usuAtiv = new javax.swing.JLabel();
@@ -80,6 +82,8 @@ public class GUI_principal extends javax.swing.JFrame {
         setMinimumSize(new java.awt.Dimension(900, 100));
         setResizable(false);
 
+        pnl_total.setBackground(new java.awt.Color(51, 51, 51));
+
         ferramentas.setBackground(new java.awt.Color(51, 51, 51));
         ferramentas.setBorder(null);
         ferramentas.setFloatable(false);
@@ -87,7 +91,7 @@ public class GUI_principal extends javax.swing.JFrame {
 
         btn_ven.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         btn_ven.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/venda64.png"))); // NOI18N
-        btn_ven.setToolTipText("Venda");
+        btn_ven.setToolTipText("Realizar uma nova VENDA");
         btn_ven.setFocusable(false);
         btn_ven.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btn_ven.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -101,7 +105,7 @@ public class GUI_principal extends javax.swing.JFrame {
 
         btn_pro.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         btn_pro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/novo64.png"))); // NOI18N
-        btn_pro.setToolTipText("Produto");
+        btn_pro.setToolTipText("Cadastrar um novo PRODUTO");
         btn_pro.setFocusable(false);
         btn_pro.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btn_pro.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -114,7 +118,7 @@ public class GUI_principal extends javax.swing.JFrame {
 
         btn_usu.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         btn_usu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/pessoa64.png"))); // NOI18N
-        btn_usu.setToolTipText("Usuário");
+        btn_usu.setToolTipText("Cadastrar um novo USUÁRIO");
         btn_usu.setFocusable(false);
         btn_usu.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btn_usu.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -141,7 +145,7 @@ public class GUI_principal extends javax.swing.JFrame {
 
         btn_ven3.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         btn_ven3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/percent64.png"))); // NOI18N
-        btn_ven3.setToolTipText("Visão Geral");
+        btn_ven3.setToolTipText("");
         btn_ven3.setFocusable(false);
         btn_ven3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btn_ven3.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -154,7 +158,7 @@ public class GUI_principal extends javax.swing.JFrame {
 
         btn_ven2.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         btn_ven2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/info64.png"))); // NOI18N
-        btn_ven2.setToolTipText("Informações do sistema");
+        btn_ven2.setToolTipText("Sobre o desenvolvedor");
         btn_ven2.setFocusable(false);
         btn_ven2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btn_ven2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -179,40 +183,37 @@ public class GUI_principal extends javax.swing.JFrame {
         });
         ferramentas.add(btn_tro);
 
+        painel.setBackground(new java.awt.Color(51, 51, 51));
         painel.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         painel.setPreferredSize(new java.awt.Dimension(900, 437));
+        painel.setLayout(new java.awt.GridBagLayout());
 
-        javax.swing.GroupLayout painelLayout = new javax.swing.GroupLayout(painel);
-        painel.setLayout(painelLayout);
-        painelLayout.setHorizontalGroup(
-            painelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        painelLayout.setVerticalGroup(
-            painelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 417, Short.MAX_VALUE)
-        );
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/imagens-sls-light-logo-bg.png"))); // NOI18N
+        painel.add(jLabel1, new java.awt.GridBagConstraints());
 
+        jPanel1.setBackground(new java.awt.Color(51, 51, 51));
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jPanel1.setPreferredSize(new java.awt.Dimension(900, 25));
 
         lbl_codAtiv.setFont(new java.awt.Font("Eras Light ITC", 1, 15)); // NOI18N
+        lbl_codAtiv.setForeground(new java.awt.Color(153, 204, 255));
         lbl_codAtiv.setText("codigo");
         jPanel1.add(lbl_codAtiv);
 
         lbl_usuAtiv.setFont(new java.awt.Font("Eras Light ITC", 1, 15)); // NOI18N
-        lbl_usuAtiv.setForeground(new java.awt.Color(0, 0, 153));
+        lbl_usuAtiv.setForeground(new java.awt.Color(255, 255, 204));
         lbl_usuAtiv.setText("usuário");
         jPanel1.add(lbl_usuAtiv);
         jPanel1.add(separador1);
 
         lbl_carAtiv.setFont(new java.awt.Font("Eras Light ITC", 1, 15)); // NOI18N
+        lbl_carAtiv.setForeground(new java.awt.Color(153, 204, 255));
         lbl_carAtiv.setText("funcao");
         jPanel1.add(lbl_carAtiv);
 
         lbl_data.setBackground(new java.awt.Color(200, 200, 180));
         lbl_data.setFont(new java.awt.Font("Eras Light ITC", 1, 15)); // NOI18N
-        lbl_data.setForeground(new java.awt.Color(0, 0, 153));
+        lbl_data.setForeground(new java.awt.Color(255, 255, 204));
         lbl_data.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbl_data.setText("dia mês ano");
         lbl_data.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -224,19 +225,47 @@ public class GUI_principal extends javax.swing.JFrame {
 
         lbl_hora.setBackground(new java.awt.Color(200, 200, 180));
         lbl_hora.setFont(new java.awt.Font("Eras Light ITC", 1, 15)); // NOI18N
+        lbl_hora.setForeground(new java.awt.Color(153, 204, 255));
         lbl_hora.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbl_hora.setText("xx:xx:xx");
         jPanel1.add(lbl_hora);
 
-        mnu_menu.setBackground(new java.awt.Color(102, 102, 102));
+        javax.swing.GroupLayout pnl_totalLayout = new javax.swing.GroupLayout(pnl_total);
+        pnl_total.setLayout(pnl_totalLayout);
+        pnl_totalLayout.setHorizontalGroup(
+            pnl_totalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl_totalLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pnl_totalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(ferramentas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(painel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+        pnl_totalLayout.setVerticalGroup(
+            pnl_totalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnl_totalLayout.createSequentialGroup()
+                .addComponent(ferramentas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(painel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0))
+        );
+
+        mnu_menu.setBackground(new java.awt.Color(0, 0, 0));
         mnu_menu.setBorder(null);
         mnu_menu.setPreferredSize(new java.awt.Dimension(900, 20));
         mnu_menu.setVerifyInputWhenFocusTarget(false);
 
         mnu_cad.setBackground(new java.awt.Color(102, 102, 102));
+        mnu_cad.setForeground(new java.awt.Color(0, 0, 0));
         mnu_cad.setText("Cadastro");
+        mnu_cad.setFont(new java.awt.Font("Eras Light ITC", 1, 14)); // NOI18N
 
         mnu_cadPro.setBackground(new java.awt.Color(102, 102, 102));
+        mnu_cadPro.setFont(new java.awt.Font("Eras Light ITC", 1, 14)); // NOI18N
+        mnu_cadPro.setForeground(new java.awt.Color(51, 51, 51));
         mnu_cadPro.setText("Produto");
         mnu_cadPro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -248,7 +277,9 @@ public class GUI_principal extends javax.swing.JFrame {
         mnu_menu.add(mnu_cad);
 
         mnu_man.setBackground(new java.awt.Color(102, 102, 102));
+        mnu_man.setForeground(new java.awt.Color(51, 51, 51));
         mnu_man.setText("Manutenção");
+        mnu_man.setFont(new java.awt.Font("Eras Light ITC", 1, 14)); // NOI18N
         mnu_man.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 mnu_manActionPerformed(evt);
@@ -256,6 +287,8 @@ public class GUI_principal extends javax.swing.JFrame {
         });
 
         mnu_manUsu.setBackground(new java.awt.Color(102, 102, 102));
+        mnu_manUsu.setFont(new java.awt.Font("Eras Light ITC", 1, 14)); // NOI18N
+        mnu_manUsu.setForeground(new java.awt.Color(51, 51, 51));
         mnu_manUsu.setText("Usuário");
         mnu_manUsu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -265,6 +298,8 @@ public class GUI_principal extends javax.swing.JFrame {
         mnu_man.add(mnu_manUsu);
 
         mnu_manCat.setBackground(new java.awt.Color(102, 102, 102));
+        mnu_manCat.setFont(new java.awt.Font("Eras Light ITC", 1, 14)); // NOI18N
+        mnu_manCat.setForeground(new java.awt.Color(51, 51, 51));
         mnu_manCat.setText("Categoria");
         mnu_manCat.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -273,6 +308,8 @@ public class GUI_principal extends javax.swing.JFrame {
         });
         mnu_man.add(mnu_manCat);
 
+        mnu_manEst.setFont(new java.awt.Font("Eras Light ITC", 1, 14)); // NOI18N
+        mnu_manEst.setForeground(new java.awt.Color(51, 51, 51));
         mnu_manEst.setText("Estoque");
         mnu_manEst.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -284,9 +321,13 @@ public class GUI_principal extends javax.swing.JFrame {
         mnu_menu.add(mnu_man);
 
         mnu_mov.setBackground(new java.awt.Color(102, 102, 102));
+        mnu_mov.setForeground(new java.awt.Color(51, 51, 51));
         mnu_mov.setText("Movimentação");
+        mnu_mov.setFont(new java.awt.Font("Eras Light ITC", 1, 14)); // NOI18N
 
         mnu_movVen.setBackground(new java.awt.Color(102, 102, 102));
+        mnu_movVen.setFont(new java.awt.Font("Eras Light ITC", 1, 14)); // NOI18N
+        mnu_movVen.setForeground(new java.awt.Color(51, 51, 51));
         mnu_movVen.setText("Venda");
         mnu_movVen.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -297,8 +338,12 @@ public class GUI_principal extends javax.swing.JFrame {
 
         mnu_menu.add(mnu_mov);
 
+        mnu_rel.setForeground(new java.awt.Color(51, 51, 51));
         mnu_rel.setText("Relatórios");
+        mnu_rel.setFont(new java.awt.Font("Eras Light ITC", 1, 14)); // NOI18N
 
+        mnu_rel_res.setFont(new java.awt.Font("Eras Light ITC", 1, 14)); // NOI18N
+        mnu_rel_res.setForeground(new java.awt.Color(51, 51, 51));
         mnu_rel_res.setText("Resumo");
         mnu_rel_res.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -310,7 +355,9 @@ public class GUI_principal extends javax.swing.JFrame {
         mnu_menu.add(mnu_rel);
 
         mnu_encer.setBackground(new java.awt.Color(102, 102, 102));
+        mnu_encer.setForeground(new java.awt.Color(51, 51, 51));
         mnu_encer.setText("Encerrar o sistema");
+        mnu_encer.setFont(new java.awt.Font("Eras Light ITC", 1, 14)); // NOI18N
         mnu_encer.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 mnu_encerMouseClicked(evt);
@@ -329,26 +376,13 @@ public class GUI_principal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(ferramentas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(painel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 888, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addContainerGap())
+            .addComponent(pnl_total, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(ferramentas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(painel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(pnl_total, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -494,6 +528,7 @@ public class GUI_principal extends javax.swing.JFrame {
     private javax.swing.JButton btn_ven2;
     private javax.swing.JButton btn_ven3;
     private javax.swing.JToolBar ferramentas;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JToolBar.Separator jSeparator1;
     private javax.swing.JToolBar.Separator jSeparator2;
@@ -515,6 +550,7 @@ public class GUI_principal extends javax.swing.JFrame {
     private javax.swing.JMenu mnu_rel;
     private javax.swing.JMenuItem mnu_rel_res;
     private javax.swing.JPanel painel;
+    private javax.swing.JPanel pnl_total;
     private javax.swing.JSeparator separador1;
     // End of variables declaration//GEN-END:variables
 
