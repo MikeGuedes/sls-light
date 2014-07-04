@@ -26,7 +26,7 @@ public class GUI_principal extends javax.swing.JFrame {
                  
                 initComponents();
                 DataHora(); //Configura a data e horário atual
-                this.setExtendedState(MAXIMIZED_BOTH);
+//                this.setExtendedState(MAXIMIZED_BOTH);
                 
                 //Ajusta a imagem de fundo com a resolução do seu monitor
                 //lbl_imagemfundo.setSize(this.getWidth(), this.getHeight());        
@@ -53,6 +53,7 @@ public class GUI_principal extends javax.swing.JFrame {
         btn_ven2 = new javax.swing.JButton();
         btn_tro = new javax.swing.JButton();
         painel = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         lbl_codAtiv = new javax.swing.JLabel();
         lbl_usuAtiv = new javax.swing.JLabel();
@@ -76,12 +77,14 @@ public class GUI_principal extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("SLS 1.0");
         setBackground(new java.awt.Color(0, 0, 0));
-        setMinimumSize(new java.awt.Dimension(1000, 600));
+        setMaximumSize(new java.awt.Dimension(900, 600));
+        setMinimumSize(new java.awt.Dimension(900, 100));
+        setPreferredSize(new java.awt.Dimension(900, 600));
+        setResizable(false);
 
         ferramentas.setBorder(null);
         ferramentas.setFloatable(false);
-        ferramentas.setRollover(true);
-        ferramentas.setPreferredSize(new java.awt.Dimension(1200, 50));
+        ferramentas.setPreferredSize(new java.awt.Dimension(900, 72));
 
         btn_ven.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         btn_ven.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/venda64.png"))); // NOI18N
@@ -176,36 +179,48 @@ public class GUI_principal extends javax.swing.JFrame {
         });
         ferramentas.add(btn_tro);
 
-        painel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102)));
-        painel.setPreferredSize(new java.awt.Dimension(700, 500));
+        painel.setBorder(null);
+        painel.setPreferredSize(new java.awt.Dimension(900, 437));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/imagens-sls-light-bg.png"))); // NOI18N
 
         javax.swing.GroupLayout painelLayout = new javax.swing.GroupLayout(painel);
         painel.setLayout(painelLayout);
         painelLayout.setHorizontalGroup(
             painelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(painelLayout.createSequentialGroup()
+                .addComponent(jLabel1)
+                .addGap(0, 0, 0))
         );
         painelLayout.setVerticalGroup(
             painelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 351, Short.MAX_VALUE)
+            .addGroup(painelLayout.createSequentialGroup()
+                .addComponent(jLabel1)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        jPanel1.setBackground(new java.awt.Color(102, 102, 102));
-        jPanel1.setPreferredSize(new java.awt.Dimension(700, 25));
+        jPanel1.setBackground(new java.awt.Color(51, 51, 51));
+        jPanel1.setPreferredSize(new java.awt.Dimension(900, 25));
 
-        lbl_codAtiv.setForeground(new java.awt.Color(255, 255, 255));
-        lbl_codAtiv.setText("usuário");
+        lbl_codAtiv.setFont(new java.awt.Font("Eras Light ITC", 1, 15)); // NOI18N
+        lbl_codAtiv.setForeground(new java.awt.Color(153, 204, 255));
+        lbl_codAtiv.setText("codigo");
         jPanel1.add(lbl_codAtiv);
 
+        lbl_usuAtiv.setFont(new java.awt.Font("Eras Light ITC", 1, 15)); // NOI18N
+        lbl_usuAtiv.setForeground(new java.awt.Color(255, 255, 153));
         lbl_usuAtiv.setText("usuário");
         jPanel1.add(lbl_usuAtiv);
         jPanel1.add(separador1);
 
-        lbl_carAtiv.setForeground(new java.awt.Color(255, 255, 255));
-        lbl_carAtiv.setText("usuário");
+        lbl_carAtiv.setFont(new java.awt.Font("Eras Light ITC", 1, 15)); // NOI18N
+        lbl_carAtiv.setForeground(new java.awt.Color(153, 204, 255));
+        lbl_carAtiv.setText("funcao");
         jPanel1.add(lbl_carAtiv);
 
         lbl_data.setBackground(new java.awt.Color(200, 200, 180));
+        lbl_data.setFont(new java.awt.Font("Eras Light ITC", 1, 15)); // NOI18N
+        lbl_data.setForeground(new java.awt.Color(255, 255, 153));
         lbl_data.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbl_data.setText("dia mês ano");
         lbl_data.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -216,14 +231,16 @@ public class GUI_principal extends javax.swing.JFrame {
         jPanel1.add(lbl_data);
 
         lbl_hora.setBackground(new java.awt.Color(200, 200, 180));
-        lbl_hora.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_hora.setFont(new java.awt.Font("Eras Light ITC", 1, 15)); // NOI18N
+        lbl_hora.setForeground(new java.awt.Color(153, 204, 255));
         lbl_hora.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbl_hora.setText("xx:xx:xx");
         jPanel1.add(lbl_hora);
 
         mnu_menu.setBackground(new java.awt.Color(102, 102, 102));
         mnu_menu.setBorder(null);
-        mnu_menu.setPreferredSize(new java.awt.Dimension(700, 20));
+        mnu_menu.setPreferredSize(new java.awt.Dimension(900, 20));
+        mnu_menu.setVerifyInputWhenFocusTarget(false);
 
         mnu_cad.setBackground(new java.awt.Color(102, 102, 102));
         mnu_cad.setText("Cadastro");
@@ -321,21 +338,27 @@ public class GUI_principal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(ferramentas, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-            .addComponent(painel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(ferramentas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(painel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 0, 0))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(ferramentas, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap()
+                .addComponent(ferramentas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(painel, javax.swing.GroupLayout.DEFAULT_SIZE, 353, Short.MAX_VALUE)
+                .addComponent(painel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0))
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
 //=========================================================================================
@@ -477,6 +500,7 @@ public class GUI_principal extends javax.swing.JFrame {
     private javax.swing.JButton btn_ven2;
     private javax.swing.JButton btn_ven3;
     private javax.swing.JToolBar ferramentas;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JToolBar.Separator jSeparator1;
     private javax.swing.JToolBar.Separator jSeparator2;
@@ -511,9 +535,9 @@ public class GUI_principal extends javax.swing.JFrame {
 		GUI_principal.codigo = cod;
 		GUI_principal.nome = nom;		
 		
-                  this.lbl_codAtiv.setText(""+codigo);
-                  this.lbl_carAtiv.setText(""+retorno);
-                  this.lbl_usuAtiv.setText(""+nome);
+                  this.lbl_codAtiv.setText("Código: "+codigo);
+                  this.lbl_carAtiv.setText("Função: "+retorno);
+                  this.lbl_usuAtiv.setText("Usuário: "+nome);
                   switch(retorno){
                            case "Vendedor":
                                     this.btn_pro.setEnabled(false);
