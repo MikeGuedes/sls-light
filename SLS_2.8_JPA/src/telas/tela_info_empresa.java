@@ -32,6 +32,7 @@ public class tela_info_empresa extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Sobre o desenvolvedor");
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(51, 51, 51));

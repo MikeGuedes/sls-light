@@ -47,6 +47,7 @@ public class tela_estoque extends javax.swing.JFrame {
         cod = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Manutenção de estoque");
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(51, 51, 51));
