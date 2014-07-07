@@ -651,7 +651,7 @@ public class GUI_principal extends javax.swing.JFrame {
                     }//CHATCH  
                 
                 }//FOR
- 
+				
             }//RUN
             
         }//THREAD
