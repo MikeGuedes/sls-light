@@ -1,0 +1,1 @@
+Sistema de automação comercial para uma loja de vestuário.
